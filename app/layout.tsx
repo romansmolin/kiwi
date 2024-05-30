@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} main-page-gradient h-full flex flex-col p-4 md:p-0`}>
+			<body className={`${inter.className} main-page-gradient h-full flex flex-col p-4 lg:p-0`}>
 				<Header />
 				<main className="max-w-screen-xl w-[100%] m-auto flex-1">
 					{children}

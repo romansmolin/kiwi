@@ -13,11 +13,11 @@ const features = [
 ]
 const HeroSection = () => {
     return (
-        <section className="flex flex-col sm:flex-row gap-10 lg:gap-8 py-10 lg:py-24">
+        <section className="flex flex-col lg:flex-row gap-10 lg:gap-8 py-10 lg:py-24">
             {/* CTA SECTION */}
             <div className='flex gap-5 items-center'>
                 <div className="mx-auto max-w-3xl flex flex-col gap-10">
-                    <h1 className="bg-gradient-to-r title-gradient bg-clip-text font-extrabold text-transparent text-5xl дпЖtext-center sm:text-6xl">
+                    <h1 className="bg-gradient-to-r title-gradient bg-clip-text font-extrabold text-transparent text-5xl text-center lg:text-left  sm:text-6xl">
                         Kiwi Animators
                         <span className="sm:block"> Детские Праздники </span>
                     </h1>
@@ -60,7 +60,7 @@ const HeroSection = () => {
             </div>
 
             {/* Main Photo */}
-            <div className='bg-gradient-to-r from-secondary-400 via-primary-500 to-primary-600 rounded-lg '>
+            <div className='flex justify-center bg-gradient-to-r from-secondary-400 via-primary-500 to-primary-600 rounded-lg '>
                 <Image
                     src={MainImage}
                     alt='Kiwi Animators'
