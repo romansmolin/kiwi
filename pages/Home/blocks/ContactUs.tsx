@@ -6,10 +6,7 @@ import EventForm from '@/components/EventForm/EventForm'
 const ContactUs = () => {
     return (
         <div className='relative'>
-            <EventForm 
-                className='sm:absolute sm:right-[50%] sm:translate-x-[50%]'
-            />
-
+            <EventForm className='sm:absolute sm:right-[50%] sm:translate-x-[50%]'/>
             <Image
                 src={KiwiFooterPhoto}
                 alt="Kiwi Animators"
