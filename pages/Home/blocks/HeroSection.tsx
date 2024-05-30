@@ -13,14 +13,12 @@ const features = [
 ]
 const HeroSection = () => {
     return (
-        <section className="flex gap-10 lg:gap-8 py-10 lg:py-24">
+        <section className="flex flex-col sm:flex-row gap-10 lg:gap-8 py-10 lg:py-24">
+            {/* CTA SECTION */}
             <div className='flex gap-5 items-center'>
                 <div className="mx-auto max-w-3xl flex flex-col gap-10">
-                    <h1
-                        className="bg-gradient-to-r from-secondary-400 via-primary-500 to-primary-600 bg-clip-text font-extrabold text-transparent sm:text-6xl"
-                    >
+                    <h1 className="bg-gradient-to-r title-gradient bg-clip-text font-extrabold text-transparent text-5xl дпЖtext-center sm:text-6xl">
                         Kiwi Animators
-
                         <span className="sm:block"> Детские Праздники </span>
                     </h1>
 
@@ -43,23 +41,25 @@ const HeroSection = () => {
                         ))}
                     </ul>
 
-                    <div className="flex flex-wrap gap-4">
+                    <div className="flex gap-4">
                         <a
-                            className="block w-full rounded border border-primary-600 bg-primary-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+                            className="block flex-1 w-full text-center rounded border border-primary-600 bg-primary-600 sm:px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-primary-600 focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
                             href="#"
                         >
-                            Get Started
+                            Подать заявку
                         </a>
 
                         <a
-                            className="block w-full rounded border border-primary-600 px-12 py-3 text-sm font-medium text-primary-600 hover:bg-primary-600 hover:text-white focus:outline-none focus:ring sm:w-auto"
+                            className="block flex-1 w-full text-center rounded border border-primary-600 sm:px-12 py-3 text-sm font-medium text-primary-600 hover:bg-primary-600 hover:text-white focus:outline-none focus:ring sm:w-auto"
                             href="#"
                         >
-                            Learn More
+                            О нас
                         </a>
                     </div>
                 </div>
             </div>
+
+            {/* Main Photo */}
             <div className='bg-gradient-to-r from-secondary-400 via-primary-500 to-primary-600 rounded-lg '>
                 <Image
                     src={MainImage}
