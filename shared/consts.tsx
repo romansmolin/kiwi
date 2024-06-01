@@ -1,12 +1,21 @@
+import Dino from '../assets/dino.png'
+import Troll from '../assets/Troll.png'
+import Unicorn from '../assets/Edinorog.png'
+import Driver from '../assets/Driver.png'
+import SpiderMan from '../assets/Pauk.png'
+import Fiksiki from '../assets/fiksiki.png'
+import SuperMan from '../assets/super.png'
+import Transformer from '../assets/transformer.png'
+import Pirat from '../assets/pirat.png'
 
 export const menuItems = [
     {label: 'Главная', href: '/'},
     {label: 'Цены', href: '#'},
     {label: 'Контакты', href: '#'},
     {label: 'О нас', href: '/about'}, 
-    {label: 'Герои', href: '#'},    
-    {label: 'Программы', href: '#'},
-    {label: 'Информация', href: '#'},        
+    {label: 'Герои', href: '/characters'},    
+    // {label: 'Программы', href: '#'},
+    // {label: 'Информация', href: '#'},        
 ]
 
 export const priceItems = [
@@ -87,3 +96,62 @@ export const aboutUsContent = {
       ]
     }
   };
+
+  export const characters = [
+    {
+      name: 'Тролль',
+      image: Troll,
+      description: 'Тролль, который заставит всех смеяться своими проделками и веселыми историями!'
+    },
+    {
+      name: 'Единорог с крыльями',
+      image: Unicorn,
+      description: 'Магический единорог с крыльями, который принесет сказку и волшебство на ваш праздник!'
+    },
+    {
+      name: 'Фиксики',
+      image: Fiksiki,
+      description: 'Фиксики всегда готовы починить любую игрушку и устроить веселую игру!'
+    },
+    {
+      name: 'Гонщик',
+      image: Driver,
+      description: 'Гонщик, который устроит захватывающие гонки и соревнования для всех!'
+    },
+    {
+      name: 'Человек-паук',
+      image: SpiderMan,
+      description: 'Человек-паук спасет праздник и покажет крутые паутины и трюки!'
+    },
+    {
+      name: 'Трансформер',
+      image: Transformer,
+      description: 'Трансформер, который удивит всех своими превращениями и защитит всех гостей!'
+    },
+    {
+      name: 'Пираты',
+      image: Pirat,
+      description: 'Пираты, которые устроят настоящее морское приключение и поиск сокровищ!'
+    },
+    {
+      name: 'Супермен',
+      image: SuperMan,
+      description: 'Супермен, который принесет суперсилу и незабываемые приключения на ваш праздник!'
+    },
+    {
+      name: 'Охотник и динозавр',
+      image: Dino,
+      description: 'Охотник и динозавр, которые покажут захватывающую историю из прошлого!'
+    },
+    // {
+    //   name: 'Железный человек',
+    //   image: IronMan,
+    //   description: 'Железный человек с крутыми гаджетами и невероятными историями!'
+    // },
+    // {
+    //   name: 'Игра в кальмара',
+    //   image: SquidGame,
+    //   description: 'Игра в кальмара, где каждый сможет почувствовать себя участником захватывающей игры!'
+    // }
+  ];
+  

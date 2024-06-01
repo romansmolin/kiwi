@@ -1,6 +1,7 @@
 import React from 'react'
 import { menuItems } from '../../shared/consts'
 import Logo from '@/assets/Logo'
+import Link from 'next/link'
 
 const Header = () => {
     return (
@@ -8,10 +9,10 @@ const Header = () => {
             <div className="mx-auto max-w-screen-xl">
                 <div className="flex h-height-for-header items-center justify-between">
                     <div className="md:flex md:items-center md:gap-12">
-                        <a className="block text-teal-600" href="#">
+                        <Link className="block text-teal-600" href="/">
                             <span className="sr-only">Home</span>
                             <Logo className="h-[70px] w-[70px]"/>
-                        </a>
+                        </Link>
                     </div>
 
                     <div className="hidden lg:block">
