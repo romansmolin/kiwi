@@ -1,17 +1,34 @@
-import React from 'react'
-import { menuItems } from '../../shared/consts'
-import Logo from '@/assets/Logo'
-import Link from 'next/link'
+'use client'
 
-const Header = () => {
+import React, { useEffect, useRef, useState } from 'react';
+import { menuItems } from '../../shared/consts';
+import Logo from '@/assets/Logo';
+import Link from 'next/link';
+
+const Header: React.FC = () => {
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <header>
+        <header className={`shadow-sm fixed w-full z-40 transition-all duration-1000 top-0 left-0 ${isScrolled && 'bg-primary-100'}`}>
             <div className="mx-auto max-w-screen-xl">
                 <div className="flex h-height-for-header items-center justify-between">
                     <div className="md:flex md:items-center md:gap-12">
                         <Link className="block text-teal-600" href="/">
                             <span className="sr-only">Home</span>
-                            <Logo className="h-[70px] w-[70px]"/>
+                            <Logo className="h-[70px] w-[70px]" />
                         </Link>
                     </div>
 
@@ -19,7 +36,7 @@ const Header = () => {
                         <nav aria-label="Global">
                             <ul className="flex items-center gap-6 text-m">
                                 {menuItems.map(menuItem => (
-                                    <li>
+                                    <li key={menuItem.label}>
                                         <a className="text-primary-600 font-bold transition hover:text-white" href={menuItem.href}> {menuItem.label} </a>
                                     </li>
                                 ))}
@@ -63,7 +80,7 @@ const Header = () => {
                 </div>
             </div>
         </header>
-    )
+    );
 }
 
-export default Header
+export default Header;

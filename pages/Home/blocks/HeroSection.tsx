@@ -4,8 +4,6 @@ import Image from 'next/image'
 import MainImage from '../../../assets/kiwi_animators.png'
 import Check from '@/assets/icons/Check'
 
-
-
 const features = [
     {label: 'Детские квесты'},
     {label: 'Различные шоу'},
@@ -13,8 +11,9 @@ const features = [
     {label: 'Индивидуальный подход'},
 ]
 const HeroSection = () => {
+    
     return (
-        <section className="flex flex-col lg:flex-row gap-10 lg:gap-8 py-10 lg:py-20">
+        <section className="flex flex-col lg:flex-row gap-10 lg:gap-8 pt-10 lg:pt-10 lg:pb-0 lg:h-screen 2xl:h-auto">
             {/* CTA SECTION */}
             <div className='flex gap-5 items-center'>
                 <div className="mx-auto max-w-3xl flex flex-col gap-10">
@@ -25,7 +24,7 @@ const HeroSection = () => {
 
                     <ul className="grid grid-cols-2 gap-3">
                         {features.map(feature => (
-                            <li className="flex items-center gap-1">
+                            <li key={feature.label} className="flex items-center gap-1">
                                 <Check />
                                 <span className="text-primary-600 font-bold text-md"> {feature.label} </span>
                             </li>
@@ -51,12 +50,11 @@ const HeroSection = () => {
             </div>
 
             {/* Main Photo */}
-            <div className='flex justify-center bg-gradient-to-r from-secondary-400 via-primary-500 to-primary-600 rounded-lg '>
+            <div className='flex justify-center'>
                 <Image
                     src={MainImage}
                     alt='Kiwi Animators'
-                    width={750}
-                    height={750}
+                    className=''
                 />
             </div>
         </section>
