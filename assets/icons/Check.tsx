@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-const Check = ({className}) => {
+interface SvgProps {
+    className?: string
+}
+
+const Check: FC<SvgProps> = ({className}) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

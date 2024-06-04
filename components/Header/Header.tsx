@@ -22,7 +22,7 @@ const Header: React.FC = () => {
     }, []);
 
     return (
-        <header className={`shadow-sm fixed w-full z-40 transition-all duration-1000 top-0 left-0 ${isScrolled && 'bg-primary-100'}`}>
+        <header className={`shadow-sm px-4 fixed w-full z-40 transition-all duration-1000 top-0 left-0 ${isScrolled && 'bg-primary-100'}`}>
             <div className="mx-auto max-w-screen-xl">
                 <div className="flex h-height-for-header items-center justify-between">
                     <div className="md:flex md:items-center md:gap-12">
@@ -45,7 +45,7 @@ const Header: React.FC = () => {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <div className="sm:flex sm:gap-4">
+                        {/* <div className="sm:flex sm:gap-4">
                             <a
                                 className="rounded-md bg-primary-600 px-5 py-2.5 text-sm font-medium text-white shadow"
                                 href="#"
@@ -60,7 +60,7 @@ const Header: React.FC = () => {
                                     Register
                                 </a>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="block md:hidden">
                             <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">

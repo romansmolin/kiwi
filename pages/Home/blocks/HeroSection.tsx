@@ -2,7 +2,6 @@ import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
 import MainImage from '../../../assets/kiwi_animators.png'
-import Check from '@/assets/icons/Check'
 
 const features = [
     {label: 'Детские квесты'},
@@ -13,7 +12,7 @@ const features = [
 const HeroSection = () => {
     
     return (
-        <section className="flex flex-col lg:flex-row gap-10 lg:gap-8 pt-10 lg:pt-10 lg:pb-0 lg:h-screen 2xl:h-auto">
+        <section className="mt-10 flex flex-col lg:flex-row gap-10 lg:gap-8 pt-10 lg:pt-10 lg:pb-0 xl:h-auto">
             {/* CTA SECTION */}
             <div className='flex gap-5 items-center'>
                 <div className="mx-auto max-w-3xl flex flex-col gap-10">
@@ -22,14 +21,6 @@ const HeroSection = () => {
                         <span className="sm:block"> Детские Праздники </span>
                     </h1>
 
-                    <ul className="grid grid-cols-2 gap-3">
-                        {features.map(feature => (
-                            <li key={feature.label} className="flex items-center gap-1">
-                                <Check />
-                                <span className="text-primary-600 font-bold text-md"> {feature.label} </span>
-                            </li>
-                        ))}
-                    </ul>
 
                     <div className="flex gap-4">
                         <a

@@ -19,6 +19,12 @@ body {
   color: rgb(var(--foreground-rgb));
 }
 
+.scroll-width {
+  @media screen and (max-width: 640px) {
+    width: calc(100% + 1rem);
+  }
+}
+
 .main-page-gradient {
   background: rgb(63,251,211);
   background: radial-gradient(circle, rgba(63,251,211,1) 0%, rgba(238,187,198,1) 100%);
