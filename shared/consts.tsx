@@ -10,8 +10,8 @@ import Pirat from '../assets/pirat.png'
 
 export const menuItems = [
   { label: 'Главная', href: '/' },
-  { label: 'Цены', href: '#price' },
-  { label: 'Контакты', href: '#contact-us' },
+  { label: 'Цены', href: '/#price' },
+  { label: 'Контакты', href: '/#contact-us' },
   { label: 'О нас', href: '/about' },
   { label: 'Герои', href: '/characters' },
 ]

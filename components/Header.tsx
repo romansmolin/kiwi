@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react';
-import { menuItems } from '../../shared/consts';
+import { menuItems } from '../shared/consts';
 import Logo from '@/assets/Logo';
 import Link from 'next/link';
 
@@ -16,6 +16,10 @@ const Header: React.FC = () => {
                 setIsScrolled(false);
             }
         };
+
+        if (window.scrollY > 0) {
+            setIsScrolled(true);
+        }
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);

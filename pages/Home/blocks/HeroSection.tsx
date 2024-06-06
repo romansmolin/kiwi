@@ -12,7 +12,7 @@ const features = [
 const HeroSection = () => {
     
     return (
-        <section className="mt-10 flex flex-col lg:flex-row gap-10 lg:gap-8 pt-10 lg:pt-10 lg:pb-0 xl:h-auto">
+        <section className="flex flex-col lg:flex-row gap-10 lg:gap-8 pt-10 lg:pt-10 lg:pb-0 xl:h-auto">
             {/* CTA SECTION */}
             <div className='flex gap-5 items-center'>
                 <div className="mx-auto max-w-3xl flex flex-col gap-10">
@@ -20,7 +20,6 @@ const HeroSection = () => {
                         Kiwi Animatori
                         <span className="sm:block"> Детские Праздники </span>
                     </h1>
-
 
                     <div className="flex gap-4">
                         <a

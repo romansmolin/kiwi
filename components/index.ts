@@ -1,8 +1,8 @@
-import Header from "./Header/Header";
-import EventForm from "./EventForm/EventForm";
-import HeroCard from "./HeroCard/HeroCard";
+import Header from "./Header";
+import EventForm from "./EventForm";
+import HeroCard from "./HeroCard";
 
-export default {
+export  {
     Header,
     EventForm,
     HeroCard

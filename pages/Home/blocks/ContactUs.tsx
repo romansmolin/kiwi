@@ -1,7 +1,7 @@
 import React from 'react'
 import KiwiFooterPhoto from '../../../assets/kiwi_footer.png'
 import Image from 'next/image'
-import EventForm from '@/components/EventForm/EventForm'
+import EventForm from '@/components/EventForm'
 import { BsTelegram, BsWhatsapp, BsEnvelope, BsPhone } from 'react-icons/bs';
 
 const ContactUs = () => {
@@ -25,7 +25,7 @@ const ContactUs = () => {
                         ))}
                     </div>
                 </div>
-                <EventForm className='lg:flex-2 rounded-2xl bg-white px-4 py-12 sm:px-6 lg:px-8 flex-grow h-full' />
+                <EventForm className='lg:flex-2 rounded-2xl bg-white px-4 py-8 sm:px-6 lg:px-8 flex-grow h-full' />
             </div>
             {/* <Image
                 src={KiwiFooterPhoto}
