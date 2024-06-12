@@ -9,7 +9,7 @@ const ContactUs = () => {
         <div className='relative'>
             <span id="contact-us" className='invisible'></span>
 
-            <div className=' w-full flex flex-col items-center lg:flex-row md:items-start md:gap-5 justify-between border rounded-2xl bg-primary-100'>
+            <div className='w-full md:h-[518px] flex flex-col items-center lg:flex-row md:items-start md:gap-5 justify-between border rounded-2xl bg-primary-100'>
                 <div className='lg:flex-1 px-4 py-12 sm:px-6 lg:px-8 flex flex-col gap-6'>
                     <h2 className='text-center lg:text-start text-5xl font-bold text-primary-600'>Наши Контакты</h2>
                     <p className='text-primary-600 text-center lg:text-start'>Если у вас возникли дополнительные вопросы или Вам нужна консультация по поводу наших услуг, мы всегда готовы вам помочь. Свяжитесь с нами любым удобным способом:</p>
@@ -25,7 +25,7 @@ const ContactUs = () => {
                         ))}
                     </div>
                 </div>
-                <EventForm className='lg:flex-2 rounded-2xl bg-white px-4 py-8 sm:px-6 lg:px-8 flex-grow h-full' />
+                <EventForm className='lg:flex-2 rounded-2xl bg-white px-4 py-8 sm:px-6 lg:px-8 flex-grow h-[520px] md:h-full' />
             </div>
             {/* <Image
                 src={KiwiFooterPhoto}
