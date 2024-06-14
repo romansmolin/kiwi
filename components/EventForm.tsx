@@ -25,9 +25,8 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 
-import OtpForm from './OtpForm';
-
 import { CalendarIcon } from "lucide-react"
+import { Spinner, OtpForm } from './index'
 
 import { cn } from '@/lib/utils';
 
@@ -121,8 +120,15 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
         }
     };
 
-    const sendEmail = () => {
-        console.log('hello world')
+    const sendEmail = async () => {
+        const formValues = form.getValues();
+        try {
+            await axiosClient.post('/mail/send-email', {
+                ...formValues
+            })
+        } catch (err) {
+            console.error('Error while verifying OTP code: ', err);
+        }
     }
 
     const renderForm = () => (
@@ -283,9 +289,16 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
         </div>
     );
 
+    const renderLoading = () => (
+        <div className="h-full flex justify-center items-center flex-col gap-6">
+            <Spinner className='w-20 h-20'/>
+        </div>
+    )
+
     return (
         <div className={cn('lg:max-w-[45%] w-full h-full', className)}>
             {formState === 'initial' && renderForm()}
+            {formState === 'loading' && renderLoading()}
             {formState === 'otp-verification' && renderOtpVerification()}
             {formState === 'success' && renderSuccess()}
         </div>

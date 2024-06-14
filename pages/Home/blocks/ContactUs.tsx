@@ -25,15 +25,8 @@ const ContactUs = () => {
                         ))}
                     </div>
                 </div>
-                <EventForm className='lg:flex-2 rounded-2xl bg-white px-4 py-8 sm:px-6 lg:px-8 flex-grow h-[520px] md:h-full' />
+                <EventForm className='lg:flex-2 rounded-2xl bg-white px-4 py-8 sm:px-6 lg:px-8 flex-grow h-[780px] md:h-full' />
             </div>
-            {/* <Image
-                src={KiwiFooterPhoto}
-                alt="Kiwi Animators"
-                width={900}
-                height={700}
-                className='m-auto absolute sm:relative bottom-[-158px] -z-10'
-            /> */}
         </div>
     )
 }
