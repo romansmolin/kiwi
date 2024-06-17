@@ -2,7 +2,6 @@ import Check from '@/components/icons/Check'
 import React from 'react'
 import { aboutUsContent } from '@/shared/consts'
 import Image from 'next/image'
-import AboutUsImage from '../../assets/about_us.png'
 
 const About = () => {
     return (
@@ -21,7 +20,7 @@ const About = () => {
                     </div>
 
                     <Image
-                        src={AboutUsImage}
+                        src='/assets/images/about_us.png'
                         alt='About Us'
                         width={600}
                         height={600}
