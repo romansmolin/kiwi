@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { menuItems } from '../shared/consts';
-import Logo from '@/assets/Logo';
+import Logo from '@/components/Logo';
 import Link from 'next/link';
 
 const Header: React.FC = () => {
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
                             <ul className="flex items-center gap-6 text-m">
                                 {menuItems.map(menuItem => (
                                     <li key={menuItem.label}>
-                                        <a className="text-primary-600 font-bold transition hover:text-white" href={menuItem.href}> {menuItem.label} </a>
+                                        <a className="text-primary-600  transition hover:text-white" href={menuItem.href}> {menuItem.label} </a>
                                     </li>
                                 ))}
                             </ul>
@@ -51,14 +51,14 @@ const Header: React.FC = () => {
                     <div className="flex items-center gap-4">
                         {/* <div className="sm:flex sm:gap-4">
                             <a
-                                className="rounded-md bg-primary-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                                className="rounded-md bg-primary-600 px-5 py-2.5 text-base font-medium text-white shadow"
                                 href="#"
                             >
                                 Login
                             </a>
 
                             <div className="hidden sm:flex">
-                                <a className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-primary-600"
+                                <a className="rounded-md bg-gray-100 px-5 py-2.5 text-base font-medium text-primary-600"
                                     href="#"
                                 >
                                     Register

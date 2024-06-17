@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Rubik_Bubbles } from "next/font/google";
 import "/shared/globals.css"
 import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
+const bubbles = Rubik_Bubbles({ weight: '400', subsets: ['latin', 'cyrillic'],})
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -17,7 +18,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} main-page-gradient flex flex-col p-4 lg:p-0`}>
+			<body className={`${bubbles.className} main-page-gradient flex flex-col p-4 lg:p-0`}>
 				<Header />
 				<main className="mt-10 max-w-screen-xl w-[100%] m-auto flex-1">
 					{children}

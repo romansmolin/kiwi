@@ -1,12 +1,12 @@
-import Dino from '../assets/dino.png'
-import Troll from '../assets/Troll.png'
-import Unicorn from '../assets/Edinorog.png'
-import Driver from '../assets/Driver.png'
-import SpiderMan from '../assets/Pauk.png'
-import Fiksiki from '../assets/fiksiki.png'
-import SuperMan from '../assets/super.png'
-import Transformer from '../assets/transformer.png'
-import Pirat from '../assets/pirat.png'
+import Dino from '../public/assets/images/dino.png'
+import Troll from '../public/assets/images/Troll.png'
+import Unicorn from '../public/assets/images/Edinorog.png'
+import Driver from '../public/assets/images/Driver.png'
+import SpiderMan from '../public/assets/images/Pauk.png'
+import Fiksiki from '../public/assets/images/fiksiki.png'
+import SuperMan from '../public/assets/images/super.png'
+import Transformer from '../public/assets/images/transformer.png'
+import Pirat from '../public/assets/images/pirat.png'
 
 export const menuItems = [
   { label: 'Главная', href: '/' },

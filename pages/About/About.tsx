@@ -1,4 +1,4 @@
-import Check from '@/assets/icons/Check'
+import Check from '@/components/icons/Check'
 import React from 'react'
 import { aboutUsContent } from '@/shared/consts'
 import Image from 'next/image'
@@ -10,7 +10,7 @@ const About = () => {
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
                 <div className="text-primary-600 text-lg flex flex-col gap-5 lg:gap-8">
                     <div>
-                        <h2 className="bg-gradient-to-r title-gradient bg-clip-text font-extrabold text-transparent text-5xl text-center lg:text-left sm:text-5xl">
+                        <h2 className="bg-gradient-to-r title-gradient bg-clip-text  text-transparent text-5xl text-center lg:text-left sm:text-5xl">
                             {aboutUsContent.aboutSection.title}
                         </h2>
                         <div className='mt-6'>
@@ -29,7 +29,7 @@ const About = () => {
                     />
 
                     <div>
-                        <h2 className="bg-gradient-to-r title-gradient bg-clip-text font-extrabold text-transparent text-5xl text-center lg:text-left sm:text-5xl">
+                        <h2 className="bg-gradient-to-r title-gradient bg-clip-text  text-transparent text-5xl text-center lg:text-left sm:text-5xl">
                             {aboutUsContent.trustSection.title}
                         </h2>
                         <ul className="mt-6 list-none flex flex-col gap-5">

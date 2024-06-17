@@ -134,7 +134,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
     const renderForm = () => (
         <>
             <div className="mx-auto max-w-lg text-center">
-                <h2 className="text-primary-600 text-2xl font-bold sm:text-3xl">Закажи праздник уже сегодня!</h2>
+                <h2 className="text-primary-600 text-2xl  sm:text-3xl">Закажи праздник уже сегодня!</h2>
                 <p className="mt-4 text-primary-500">
                     Порадуйте себя и своего ребенка, наполнив жизнь запоминающемся событием
                 </p>
@@ -173,7 +173,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
                             name="numberOfKids"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className='leading-7 text-primary-600'>Количество детей на празднике</FormLabel>
+                                    <FormLabel className='leading-7 text-primary-600'>Количество детей</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
@@ -251,7 +251,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
                     </div>
                     {error && <p className="text-red-600">{error}</p>}
                     <div>
-                        <Button type="submit" className='bg-primary-600 flex-1' disabled={loading}>
+                        <Button type="submit" className='bg-primary-600 flex-1 w-full md:w-auto' disabled={loading}>
                             {loading ? 'Загрузка...' : 'Отправить'}
                         </Button>
                     </div>
@@ -261,9 +261,9 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
     );
 
     const renderOtpVerification = () => (
-        <div className='h-full flex justify-center items-center flex-col gap-6'>
+        <div className='h-[600px] md:h-full flex justify-center items-center flex-col gap-6'>
             <div className="mx-auto max-w-lg text-center">
-                <h2 className="text-primary-600 text-2xl font-bold sm:text-3xl">
+                <h2 className="text-primary-600 text-2xl  sm:text-3xl">
                     Предварительная верификация личности необходима перед отправкой запроса
                 </h2>
                 <p className="mt-4 text-primary-500">
@@ -279,8 +279,8 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
     );
 
     const renderSuccess = () => (
-        <div className="h-full flex justify-center items-center flex-col gap-6">
-            <h2 className="text-primary-600 text-center text-2xl font-bold sm:text-3xl">
+        <div className="h-[600px] md:h-full flex justify-center items-center flex-col gap-6">
+            <h2 className="text-primary-600 text-center text-2xl  sm:text-3xl">
                 Спасибо! Ваш запрос был отправлен.
             </h2>
             <p className="mt-4 text-primary-500">
@@ -290,7 +290,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
     );
 
     const renderLoading = () => (
-        <div className="h-full flex justify-center items-center flex-col gap-6">
+        <div className="h-[600px] md:h-full flex justify-center items-center flex-col gap-6">
             <Spinner className='w-20 h-20'/>
         </div>
     )
