@@ -42,7 +42,7 @@ const About = () => {
                 </div>
                 <div className="m-auto">
                     <Image
-                        src={AboutUsImage}
+                        src='/assets/images/about_us.png'
                         alt='About Us'
                         width={580}
                         height={580}
