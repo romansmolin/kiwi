@@ -4,7 +4,7 @@ import Check from '@/components/icons/Check'
 const Prices = () => {
     return (
         <>
-            <div className="flex flex-col gap-6 sm:items-center  sm:px-6 sm:pt-12">
+            <div className="flex flex-col gap-6 sm:items-center pt-12 sm:px-6 sm:pt-12">
                 <h2 className='text-5xl  text-primary-600 m-auto'>Цены</h2>
                 <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-8 sm:py-12 lg:px-8 lg:pt-24 lg:pb-18">
                     {priceItems.map(price => (
