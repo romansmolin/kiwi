@@ -26,7 +26,7 @@ const Characters: React.FC<CharactersPageProps> = ({characters, totalPages}) => 
     return (
         <section className='my-10 flex flex-col justify-center items-center w-full'>
             <div className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-14 lg:py-20">
-                {characters.map(character => (
+                {characters?.map(character => (
                     <HeroCard
                         key={character.name}
                         img={character.image}
