@@ -38,7 +38,7 @@ const Characters: React.FC<CharactersPageProps> = ({characters, totalPages}) => 
             <Pagination className='text-primary-600'>
                 <PaginationContent>
                     <PaginationPrevious href="#" />
-                    {paginationItems.map(item => (
+                    {paginationItems?.map(item => (
                         <PaginationItem key={`item-${item}`}>
                             <PaginationLink href={{
                                 pathname: '/characters',
