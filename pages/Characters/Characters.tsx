@@ -16,7 +16,6 @@ interface Character {
     image: string;
     description: string;
 }
-
 interface CharactersPageProps {
     characters: Character[],
     totalPages: number
@@ -40,7 +39,7 @@ const Characters: React.FC<CharactersPageProps> = ({characters, totalPages}) => 
                 <PaginationContent>
                     <PaginationPrevious href="#" />
                     {paginationItems.map(item => (
-                        <PaginationItem>
+                        <PaginationItem key={`item-${item}`}>
                             <PaginationLink href={{
                                 pathname: '/characters',
                                 query: {
