@@ -261,7 +261,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
     );
 
     const renderOtpVerification = () => (
-        <div className='h-[600px] md:h-full flex justify-center items-center flex-col gap-6'>
+        <div className='h-[550px] flex justify-center items-center flex-col gap-6'>
             <div className="mx-auto max-w-lg text-center">
                 <h2 className="text-primary-600 text-2xl  sm:text-3xl">
                     Предварительная верификация личности необходима перед отправкой запроса
@@ -279,7 +279,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
     );
 
     const renderSuccess = () => (
-        <div className="h-[600px] md:h-full flex justify-center items-center flex-col gap-6">
+        <div className="h-[550px] flex justify-center items-center flex-col gap-6">
             <h2 className="text-primary-600 text-center text-2xl  sm:text-3xl">
                 Спасибо! Ваш запрос был отправлен.
             </h2>
@@ -290,13 +290,13 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
     );
 
     const renderLoading = () => (
-        <div className="h-[600px] md:h-full flex justify-center items-center flex-col gap-6">
+        <div className="h-[550px] flex justify-center items-center flex-col gap-6">
             <Spinner className='w-20 h-20'/>
         </div>
     )
 
     return (
-        <div className={cn('lg:max-w-[45%] w-full h-full', className)}>
+        <div className={cn('lg:max-w-[45%] w-full', className)}>
             {formState === 'initial' && renderForm()}
             {formState === 'loading' && renderLoading()}
             {formState === 'otp-verification' && renderOtpVerification()}
