@@ -135,7 +135,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
         <>
             <div className="mx-auto max-w-lg text-center">
                 <h2 className="text-primary-600 text-2xl  sm:text-3xl">Закажи праздник уже сегодня!</h2>
-                <p className="mt-4 text-primary-500">
+                <p className="mt-4 text-primary-500 text-lg">
                     Порадуйте себя и своего ребенка, наполнив жизнь запоминающемся событием
                 </p>
             </div>

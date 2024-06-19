@@ -15,6 +15,8 @@ const HeroCard: React.FC<HeroCardProps> = ({ img, title, text }) => {
                 <Image
                     src={img}
                     alt={title}
+                    width={200}
+                    height={200}
                     className='object-contain w-full h-full'
                 />
             </div>

@@ -17,9 +17,9 @@ const containerVariants = {
         transition: {
           height: { duration: 0.3 },
           opacity: { duration: 0.2, delay: 0.1 },
-          when: 'afterChildren', // Animate children first, then container
+          when: 'afterChildren', 
           staggerChildren: 0.05,
-          staggerDirection: -1, // Reverse the order of staggering for closing
+          staggerDirection: -1, 
         },
       },
       visible: {
@@ -81,10 +81,10 @@ const Header: React.FC = () => {
 
                     <div className="hidden lg:block">
                         <nav aria-label="Global">
-                            <ul className="flex items-center gap-6 text-m">
+                            <ul className="flex items-center gap-6 text-lg">
                                 {menuItems.map(menuItem => (
                                     <li key={menuItem.label}>
-                                        <a className="text-primary-600  transition hover:text-white" href={menuItem.href}> {menuItem.label} </a>
+                                        <Link className="text-primary-600 transition hover:text-white" href={menuItem.href}> {menuItem.label} </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -130,7 +130,7 @@ const Header: React.FC = () => {
                 initial="hidden"
                 animate={isMenuOpened ? 'visible' : 'hidden'}
                 variants={containerVariants}
-                className={cn('w-full rounded bg-white' )}
+                className={cn('w-full rounded bg-white md:hidden')}
             >
                 <motion.ul className='flex flex-col gap-6 text-center'>
                     {menuItems.map((menuItem) => (

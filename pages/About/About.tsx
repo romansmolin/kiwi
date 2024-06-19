@@ -42,7 +42,7 @@ const About = () => {
                 </div>
                 <div className="m-auto">
                     <Image
-                        src='/assets/images/about_us.png'
+                        src='https://res.cloudinary.com/dgh3hceyt/image/upload/v1718803793/about_us_tpedp6.png'
                         alt='About Us'
                         width={580}
                         height={580}

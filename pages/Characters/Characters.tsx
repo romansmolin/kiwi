@@ -1,10 +1,31 @@
 import React from 'react'
 import HeroCard from '@/components/HeroCard'
-import { characters } from '@/shared/consts'
+import { axiosClient } from '@/shared/api/axiosClient'
+import {
+    Pagination,
+    PaginationContent,
+    PaginationEllipsis,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious,
+} from "@/components/ui/pagination"
 
-const Characters = () => {
+interface Character {
+    name: string;
+    image: string;
+    description: string;
+}
+
+interface CharactersPageProps {
+    characters: Character[],
+    totalPages: number
+}
+const Characters: React.FC<CharactersPageProps> = ({characters, totalPages}) => {
+    const paginationItems = Array.from({ length: totalPages }, (_, index) => index + 1);
+
     return (
-        <section className='mt-10 flex justify-center w-full'>
+        <section className='my-10 flex flex-col justify-center items-center w-full'>
             <div className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-14 lg:py-20">
                 {characters.map(character => (
                     <HeroCard
@@ -15,6 +36,24 @@ const Characters = () => {
                     />
                 ))}
             </div>
+            <Pagination className='text-primary-600'>
+                <PaginationContent>
+                    <PaginationPrevious href="#" />
+                    {paginationItems.map(item => (
+                        <PaginationItem>
+                            <PaginationLink href={{
+                                pathname: '/characters',
+                                query: {
+                                    page: item
+                                }
+                            }}>{item}</PaginationLink>
+                        </PaginationItem>
+                    ))}
+                    <PaginationItem>
+                        <PaginationNext href="#" />
+                    </PaginationItem>
+                </PaginationContent>
+            </Pagination>
         </section>
     )
 }

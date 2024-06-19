@@ -4,12 +4,13 @@ import React, { useState, useEffect } from 'react'
 import ImageCarousel from '@/components/ImageCarousel';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
+import Link from 'next/link';
 
 const carouselImages = [
-    '/assets/images/Gallery1.jpeg',
-    '/assets/images/Gallery2.jpeg',
-    '/assets/images/Gallery3.jpeg',
-    '/assets/images/Gallery4.jpeg',
+    'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718803796/Gallery1_yioh9a.jpg',
+    'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718803797/Gallery2_md8zla.jpg',
+    'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718803798/Gallery3_lteubr.jpg',
+    'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718803799/Gallery4_hhs5iy.jpg',
 ]
 
 const GallerySection = () => {
@@ -17,8 +18,8 @@ const GallerySection = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setPhotoIndex(prevIndex => (prevIndex % 4) + 1); // Assuming you have 4 images in total (Gallery1.jpeg to Gallery4.jpeg)
-        }, 3000); // Change photo every 3 seconds
+            setPhotoIndex(prevIndex => (prevIndex % carouselImages.length) + 1); 
+        }, 3000); 
 
         return () => clearInterval(interval);
     }, []);
@@ -43,20 +44,20 @@ const GallerySection = () => {
                     <div
                         className="flex flex-col justify-center gap-2 pt-10 sm:flex-row sm:items-center lg:justify-start"
                     >
-                        <Button asChild className='bg-primary-600 p-7 gap-4'>
-                            <a
+                        <Button asChild className='bg-primary-600 p-6 gap-4'>
+                            <Link
                                 href="javascript:void(0)"
                             >
                                 <Download />
                                 <span>Скачать каталог</span>
-                            </a>
+                            </Link>
                         </Button>
-                        <Button asChild className='bg-primary-600 p-7'>
-                            <a
+                        <Button asChild className='bg-primary-600 p-6'>
+                            <Link
                                 href="javascript:void(0)"
                             >
                                 <span>Доступные герои</span>
-                            </a>
+                            </Link>
                         </Button>
                     </div>
                 </div>
