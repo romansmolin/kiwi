@@ -35,7 +35,7 @@ const getCharacters = async (page: number, limit: number): Promise<CharacterResp
 
 const CharactersPage: React.FC<SearchParams> = async ({ searchParams }) => {
 	const { page } = searchParams
-	const { characters, totalPages } = await getCharacters(parseInt(page), 3);
+	const { characters, totalPages } = await getCharacters(parseInt(page), 6);
 
 	return (
 		<>

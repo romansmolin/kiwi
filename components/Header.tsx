@@ -5,7 +5,7 @@ import { menuItems } from '../shared/consts';
 import Logo from '@/components/Logo';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const containerVariants = {
     hidden: {
@@ -15,32 +15,32 @@ const containerVariants = {
         paddingBottom: 0,
         marginBottom: 0,
         transition: {
-          height: { duration: 0.3 },
-          opacity: { duration: 0.2, delay: 0.1 },
-          when: 'afterChildren', 
-          staggerChildren: 0.05,
-          staggerDirection: -1, 
+            height: { duration: 0.3 },
+            opacity: { duration: 0.2, delay: 0.1 },
+            when: 'afterChildren',
+            staggerChildren: 0.05,
+            staggerDirection: -1,
         },
-      },
-      visible: {
+    },
+    visible: {
         opacity: 1,
         paddingTop: '1.5rem',
         paddingBottom: '1.5rem',
         marginBottom: '1.5rem',
         height: 'auto',
         transition: {
-          height: { duration: 0.3 },
-          opacity: { duration: 0.2, delay: 0.1 },
-          when: 'beforeChildren',
-          staggerChildren: 0.1,
+            height: { duration: 0.3 },
+            opacity: { duration: 0.2, delay: 0.1 },
+            when: 'beforeChildren',
+            staggerChildren: 0.1,
         },
-      },
-  };
+    },
+};
 
-  const itemVariants = {
+const itemVariants = {
     hidden: { opacity: 0, y: -10 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.2 } },
-  };
+};
 
 
 const Header: React.FC = () => {
@@ -126,20 +126,30 @@ const Header: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <motion.div
-                initial="hidden"
-                animate={isMenuOpened ? 'visible' : 'hidden'}
-                variants={containerVariants}
-                className={cn('w-full rounded bg-white md:hidden')}
-            >
-                <motion.ul className='flex flex-col gap-6 text-center'>
-                    {menuItems.map((menuItem) => (
-                        <motion.li key={menuItem.label} variants={itemVariants} className='text-primary-600 text-lg' onClick={openMenu}>
-                            <a href={menuItem.href}>{menuItem.label}</a>
-                        </motion.li>
-                    ))}
-                </motion.ul>
-            </motion.div>
+            <AnimatePresence>
+                {isMenuOpened && (
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                        variants={containerVariants}
+                        className={cn('w-full rounded bg-white')}
+                    >
+                        <motion.ul className="flex flex-col gap-6 text-center">
+                            {menuItems.map((menuItem) => (
+                                <motion.li
+                                    key={menuItem.label}
+                                    variants={itemVariants}
+                                    className="text-primary-600 text-lg"
+                                    onClick={openMenu}
+                                >
+                                    <a href={menuItem.href}>{menuItem.label}</a>
+                                </motion.li>
+                            ))}
+                        </motion.ul>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 }

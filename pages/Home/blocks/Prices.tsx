@@ -38,7 +38,6 @@ const Prices = () => {
                 </div>
 
             </div>
-            <span id="contact-us" className='invisible'></span>
         </>
     )
 }

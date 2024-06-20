@@ -7,8 +7,6 @@ import { BsTelegram, BsWhatsapp, BsEnvelope, BsPhone } from 'react-icons/bs';
 const ContactUs = () => {
     return (
         <div className='relative sm:py-12'>
-            <span id="contact-us" className='invisible'></span>
-
             <div className='w-full flex flex-col items-center lg:flex-row md:items-start md:gap-5 justify-between border rounded-2xl bg-primary-100'>
                 <div className='lg:flex-1 px-4 py-12 sm:px-6 lg:px-8 flex flex-col gap-6'>
                     <h2 className='text-center lg:text-start text-5xl  text-primary-600'>Наши Контакты</h2>
