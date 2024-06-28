@@ -1,13 +1,3 @@
-import Dino from '../public/assets/images/dino.png'
-import Troll from '../public/assets/images/Troll.png'
-import Unicorn from '../public/assets/images/Edinorog.png'
-import Driver from '../public/assets/images/Driver.png'
-import SpiderMan from '../public/assets/images/Pauk.png'
-import Fiksiki from '../public/assets/images/fiksiki.png'
-import SuperMan from '../public/assets/images/super.png'
-import Transformer from '../public/assets/images/transformer.png'
-import Pirat from '../public/assets/images/pirat.png'
-
 export const menuItems = [
   { label: 'Главная', href: '/' },
   { label: 'Цены', href: '/#price' },
@@ -94,64 +84,6 @@ export const aboutUsContent = {
     ]
   }
 };
-
-export const characters = [
-  {
-    name: 'Тролль',
-    image: Troll,
-    description: 'Тролль, который заставит всех смеяться своими проделками и веселыми историями!'
-  },
-  {
-    name: 'Единорог с крыльями',
-    image: Unicorn,
-    description: 'Магический единорог с крыльями, который принесет сказку и волшебство на ваш праздник!'
-  },
-  {
-    name: 'Фиксики',
-    image: Fiksiki,
-    description: 'Фиксики всегда готовы починить любую игрушку и устроить веселую игру!'
-  },
-  {
-    name: 'Гонщик',
-    image: Driver,
-    description: 'Гонщик, который устроит захватывающие гонки и соревнования для всех!'
-  },
-  {
-    name: 'Человек-паук',
-    image: SpiderMan,
-    description: 'Человек-паук спасет праздник и покажет крутые паутины и трюки!'
-  },
-  {
-    name: 'Трансформер',
-    image: Transformer,
-    description: 'Трансформер, который удивит всех своими превращениями и защитит всех гостей!'
-  },
-  {
-    name: 'Пираты',
-    image: Pirat,
-    description: 'Пираты, которые устроят настоящее морское приключение и поиск сокровищ!'
-  },
-  {
-    name: 'Супермен',
-    image: SuperMan,
-    description: 'Супермен, который принесет суперсилу и незабываемые приключения на ваш праздник!'
-  },
-  {
-    name: 'Охотник и динозавр',
-    image: Dino,
-    description: 'Охотник и динозавр, которые покажут захватывающую историю из прошлого!'
-  },
-  // {
-  //   name: 'Железный человек',
-  //   image: IronMan,
-  //   description: 'Железный человек с крутыми гаджетами и невероятными историями!'
-  // },
-  // {
-  //   name: 'Игра в кальмара',
-  //   image: SquidGame,
-  //   description: 'Игра в кальмара, где каждый сможет почувствовать себя участником захватывающей игры!'
-  // }
-];
 
 export const benefits = [
   {value: '+1000', title: 'Поставленных Праздников'},
