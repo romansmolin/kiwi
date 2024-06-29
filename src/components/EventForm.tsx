@@ -29,30 +29,8 @@ import { CalendarIcon } from "lucide-react"
 import { Spinner, OtpForm } from './index'
 
 import { cn } from '@/lib/utils';
+import useTranslation from 'next-translate/useTranslation';
 
-const formSchema = z.object({
-    nameOfKid: z
-        .string()
-        .min(2, { message: "Введите имя ребенка" })
-        .max(50, { message: "Слишком много символов" }),
-    ageOfKid: z
-        .preprocess(value => Number(value), z
-            .number()
-            .min(1, { message: "Введите возраст" })),
-    numberOfKids: z
-        .preprocess(value => Number(value), z
-            .number()
-            .min(1, { message: "Минимум 1 ребенок на празднике" })
-            .max(25, { message: "Максимум 25 детей на празднике" })),
-    desiredCharacter: z.string(),
-    phoneNumber: z
-        .string()
-        .regex(/^(\+?\d{1,4}[\s-]?)?\(?(\d{3})\)?[\s-]?(\d{3})[\s-]?(\d{4})$/, { message: "Нужный формат: +371..." }),
-    date: z
-        .date({
-            required_error: "Введите дату праздника",
-        }),
-});
 
 interface EventFormProps {
     className?: string
@@ -65,6 +43,29 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
     const [loading, setLoading] = useState(false);
     const [otpCode, setOtpCode] = useState('')
     const [error, setError] = useState<string | null>(null);
+    const { t } = useTranslation("home")
+
+    const formSchema = z.object({
+        nameOfKid: z
+            .string()
+            .min(2, { message: t("contacts.form.name.errors.min") })
+            .max(50, { message: t("contacts.form.name.errors.max") }),
+        ageOfKid: z
+            .preprocess(value => Number(value), z
+                .number({ message: t("contacts.form.age.errors.min") })),
+        numberOfKids: z
+            .preprocess(value => Number(value), z
+                .number({ message: t("contacts.form.number.errors.min") })
+                .max(25, { message: t("contacts.form.number.errors.max") })),
+        desiredCharacter: z.string(),
+        phoneNumber: z
+            .string()
+            .regex(/^(\+?\d{1,4}[\s-]?)?\(?(\d{3})\)?[\s-]?(\d{3})[\s-]?(\d{4})$/, { message: t("contacts.form.phone.errors.message") }),
+        date: z
+            .date({
+                required_error: t("contacts.form.date.errors.message"),
+            }),
+    });
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -86,12 +87,12 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
             if (response?.data.success) {
                 setFormState('otp-verification');
             } else {
-                setError('Ошибка при отправке OTP. Пожалуйста, попробуйте снова.');
+                setError(t("contacts.form.otp.send-error"));
                 setFormState('initial');
             }
         } catch (err) {
             console.error('Error while sending OTP code: ', err);
-            setError('Ошибка при отправке OTP. Пожалуйста, попробуйте снова.');
+            setError(t("contacts.form.otp.send-error"));
             setFormState('initial');
         } finally {
             setLoading(false);
@@ -108,12 +109,12 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
                 sendEmail()
                 setFormState('success');
             } else {
-                setError('Ошибка при верификации OTP. Пожалуйста, попробуйте снова.');
+                setError(t("contacts.form.otp.verification-error"));
                 setFormState('otp-verification');
             }
         } catch (err) {
             console.error('Error while verifying OTP code: ', err);
-            setError('Ошибка при верификации OTP. Пожалуйста, попробуйте снова.');
+            setError(t("contacts.form.otp.verification-error"));
             setFormState('otp-verification');
         } finally {
             setLoading(false);
@@ -134,9 +135,9 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
     const renderForm = () => (
         <>
             <div className="mx-auto max-w-lg text-center">
-                <h2 className="text-primary-600 text-2xl  sm:text-3xl">Закажи праздник уже сегодня!</h2>
+                <h2 className="text-primary-600 text-2xl  sm:text-3xl">{t("contacts.form.title")}</h2>
                 <p className="mt-4 text-primary-500 text-lg">
-                    Порадуйте себя и своего ребенка, наполнив жизнь запоминающемся событием
+                    {t("contacts.form.text")}
                 </p>
             </div>
             <Form {...form}>
@@ -147,7 +148,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
                             name="nameOfKid"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className='leading-7 text-primary-600'>Имя ребенка</FormLabel>
+                                    <FormLabel className='leading-7 text-primary-600'>{t("contacts.form.name.label")}</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
@@ -160,7 +161,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
                             name="ageOfKid"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className='leading-7 text-primary-600'>Возраст ребенка</FormLabel>
+                                    <FormLabel className='leading-7 text-primary-600'>{t("contacts.form.age.label")}</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
@@ -173,7 +174,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
                             name="numberOfKids"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className='leading-7 text-primary-600'>Количество детей</FormLabel>
+                                    <FormLabel className='leading-7 text-primary-600'>{t("contacts.form.number.label")}</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
@@ -186,7 +187,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
                             name="desiredCharacter"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className='leading-7 text-primary-600'>Желаемый персонаж</FormLabel>
+                                    <FormLabel className='leading-7 text-primary-600'>{t("contacts.form.character.label")}</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
@@ -199,7 +200,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
                             name="phoneNumber"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className='leading-7 text-primary-600'>Номер телефона</FormLabel>
+                                    <FormLabel className='leading-7 text-primary-600'>{t("contacts.form.phone.label")}</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
@@ -212,7 +213,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
                             name="date"
                             render={({ field }) => (
                                 <FormItem className="flex flex-col">
-                                    <FormLabel className='leading-7 text-primary-600'>Дата праздника</FormLabel>
+                                    <FormLabel className='leading-7 text-primary-600'>{t("contacts.form.date.label")}</FormLabel>
                                     <Popover>
                                         <PopoverTrigger asChild>
                                             <FormControl>
@@ -252,7 +253,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
                     {error && <p className="text-red-600">{error}</p>}
                     <div>
                         <Button type="submit" className='bg-primary-600 flex-1 w-full md:w-auto' disabled={loading}>
-                            {loading ? 'Загрузка...' : 'Отправить'}
+                            {loading ? t("contacts.form.loading") : t("contacts.form.send")}
                         </Button>
                     </div>
                 </form>
@@ -264,16 +265,16 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
         <div className='h-[550px] flex justify-center items-center flex-col gap-6'>
             <div className="mx-auto max-w-lg text-center">
                 <h2 className="text-primary-600 text-2xl  sm:text-3xl">
-                    Предварительная верификация личности необходима перед отправкой запроса
+                    {t("contacts.form.person-verificationl")}
                 </h2>
                 <p className="mt-4 text-primary-500">
-                    Используйте код, полученный по SMS
+                    {t("contacts.form.sms-code")}
                 </p>
             </div>
             <OtpForm setOtpCode={setOtpCode} />
             {error && <p className="text-red-600">{error}</p>}
             <Button className="bg-primary-600" onClick={submitOtpCode} disabled={loading}>
-                {loading ? 'Загрузка...' : 'Отправить'}
+                {loading ? t("contacts.form.loading") : t("contacts.form.send")}
             </Button>
         </div>
     );
@@ -281,17 +282,17 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
     const renderSuccess = () => (
         <div className="h-[550px] flex justify-center items-center flex-col gap-6">
             <h2 className="text-primary-600 text-center text-2xl  sm:text-3xl">
-                Спасибо! Ваш запрос был отправлен.
+                {t("contacts.form.success-title")}
             </h2>
             <p className="mt-4 text-primary-500">
-                Мы свяжемся с вами в ближайшее время.
+                {t("contacts.form.success-text")}
             </p>
         </div>
     );
 
     const renderLoading = () => (
         <div className="h-[550px] flex justify-center items-center flex-col gap-6">
-            <Spinner className='w-20 h-20'/>
+            <Spinner className='w-20 h-20' />
         </div>
     )
 

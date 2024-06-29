@@ -3,14 +3,17 @@ import KiwiFooterPhoto from '../../../assets/kiwi_footer.png'
 import Image from 'next/image'
 import EventForm from '@/components/EventForm'
 import { BsTelegram, BsWhatsapp, BsEnvelope, BsPhone } from 'react-icons/bs';
+import useTranslation from 'next-translate/useTranslation';
 
 const ContactUs = () => {
+    const { t } = useTranslation("home")
+
     return (
         <div className='relative sm:py-12'>
             <div className='w-full flex flex-col items-center lg:flex-row md:items-start md:gap-5 justify-between border rounded-2xl bg-primary-100'>
                 <div className='lg:flex-1 px-4 py-12 sm:px-6 lg:px-8 flex flex-col gap-6'>
-                    <h2 className='text-center lg:text-start text-5xl  text-primary-600'>Наши Контакты</h2>
-                    <p className='text-primary-600 text-lg text-center lg:text-start'>Если у вас возникли дополнительные вопросы или Вам нужна консультация по поводу наших услуг, мы всегда готовы вам помочь. Свяжитесь с нами любым удобным способом:</p>
+                    <h2 className='text-center lg:text-start text-5xl  text-primary-600'>{t("contacts.title")}</h2>
+                    <p className='text-primary-600 text-lg text-center lg:text-start'>{t("contacts.text")}</p>
                     <div className='grid justify-center items-center grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-5'>
                         {contacts.map(contact => (
                             <div key={contact.title} className='rounded-2xl p-6 flex items-center justify-between bg-white lg:max-w-[350px]'>

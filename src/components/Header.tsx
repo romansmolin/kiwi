@@ -1,11 +1,13 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { menuItems } from '../shared/consts';
 import Logo from '@/components/Logo';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
+import useTranslation from 'next-translate/useTranslation';
+import LanguageSelector from './LanguageSelector';
 
 const containerVariants = {
     hidden: {
@@ -44,8 +46,9 @@ const itemVariants = {
 
 
 const Header: React.FC = () => {
+    const { t } = useTranslation("common")
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isMenuOpened, setIsMenuOpened] = useState(false)
+    const [isMenuOpened, setIsMenuOpened] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -84,31 +87,18 @@ const Header: React.FC = () => {
                             <ul className="flex items-center gap-6 text-lg">
                                 {menuItems.map(menuItem => (
                                     <li key={menuItem.label}>
-                                        <Link className="text-primary-600 transition hover:text-white" href={menuItem.href}> {menuItem.label} </Link>
+                                        <Link className="text-primary-600 transition hover:text-white" href={menuItem.href}> {t(menuItem.label)} </Link>
                                     </li>
                                 ))}
                             </ul>
                         </nav>
                     </div>
 
+                    <div className="hidden lg:block">
+                        <LanguageSelector />
+                    </div>
+
                     <div className="flex items-center gap-4">
-                        {/* <div className="sm:flex sm:gap-4">
-                            <a
-                                className="rounded-md bg-primary-600 px-5 py-2.5 text-base font-medium text-white shadow"
-                                href="#"
-                            >
-                                Login
-                            </a>
-
-                            <div className="hidden sm:flex">
-                                <a className="rounded-md bg-gray-100 px-5 py-2.5 text-base font-medium text-primary-600"
-                                    href="#"
-                                >
-                                    Register
-                                </a>
-                            </div>
-                        </div> */}
-
                         <div className="block md:hidden">
                             <button onClick={openMenu} className="rounded bg-white p-2 text-gray-600 transition hover:text-gray-600/75">
                                 <svg
@@ -143,7 +133,7 @@ const Header: React.FC = () => {
                                     className="text-primary-600 text-lg"
                                     onClick={openMenu}
                                 >
-                                    <a href={menuItem.href}>{menuItem.label}</a>
+                                    <a href={menuItem.href}>{t(menuItem.label)}</a>
                                 </motion.li>
                             ))}
                         </motion.ul>

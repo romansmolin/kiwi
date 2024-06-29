@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Rubik_Bubbles } from "next/font/google";
 import "../shared/globals.css"
 import Header from "@/components/Header";
+import { Suspense } from "react";
 
 const bubbles = Rubik_Bubbles({ weight: '400', subsets: ['latin', 'cyrillic'],})
 
@@ -13,13 +14,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
 	children,
+	params: { lang },
 }: Readonly<{
 	children: React.ReactNode;
+	params: { lang: string };
 }>) {
 	return (
-		<html lang="en">
+		<html lang={lang}>
 			<body className={`${bubbles.className} main-page-gradient flex flex-col p-4 lg:p-0`}>
+				
 				<Header />
+			
 				<main className="mt-10 max-w-screen-xl w-[100%] m-auto flex-1">
 					{children}
 				</main>

@@ -1,66 +1,63 @@
+import Latvia from "@/components/icons/Latvia";
+import Russia from "@/components/icons/Russia";
+import UnitedKingdom from "@/components/icons/UnitedKingdom";
+
 export const menuItems = [
-  { label: 'Главная', href: '/' },
-  { label: 'Цены', href: '/#price' },
-  { label: 'Контакты', href: '/#contact-us' },
-  { label: 'О нас', href: '/about' },
-  { label: 'Герои', href: '/characters' },
+  { label: 'header.home', href: '/' },
+  { label: 'header.prices', href: '/#price' },
+  { label: 'header.contacts', href: '/#contact-us' },
+  { label: 'header.about-us', href: '/about' },
+  { label: 'header.characters', href: '/characters' },
 ]
 
 export const priceItems = [
   {
-    title: "Стандарт+",
-    subtitle: "Plan",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    title: "prices.plans.standard-plus.title",
     price: {
       amount: 90,
     },
     includes: {
       items: [
-        { text: "Продолжительность - 1,5 часа", icon: "check" },
-        { text: "Любимый герой", icon: "check" },
-        { text: "Музыкальное сопровожение", icon: "check" },
-        { text: "Тематический реквизит", icon: "check" },
-        { text: "Активные игры и танцы", icon: "check" },
-        { text: "Вынос вашего тортика", icon: "check" }
+        { text: "prices.plans.standard-plus.items.0.text" },
+        { text: "prices.plans.standard-plus.items.1.text" },
+        { text: "prices.plans.standard-plus.items.2.text" },
+        { text: "prices.plans.standard-plus.items.3.text" },
+        { text: "prices.plans.standard-plus.items.4.text" },
+        { text: "prices.plans.standard-plus.items.5.text" }
       ]
     },
   },
   {
-    title: "Стандарт",
-    priority: true,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    title: "prices.plans.standard.title",
     price: {
       amount: 70,
     },
+    priority: true,
     includes: {
-      header: "Включает:",
       items: [
-        { text: "Продолжительность - 1 час", icon: "check" },
-        { text: "Любимый герой", icon: "check" },
-        { text: "Музыкальное сопровожение", icon: "check" },
-        { text: "Тематический реквизит", icon: "check" },
-        { text: "Активные игры и танцы", icon: "check" },
-        { text: "Вынос вашего тортика", icon: "check" }
+        { text: "prices.plans.standard.items.0.text" },
+        { text: "prices.plans.standard.items.1.text" },
+        { text: "prices.plans.standard.items.2.text" },
+        { text: "prices.plans.standard.items.3.text" },
+        { text: "prices.plans.standard.items.4.text" },
+        { text: "prices.plans.standard.items.5.text" }
       ]
     },
   },
   {
-    title: "Продленная",
-    subtitle: "Plan",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    title: "prices.plans.extended.title",
     price: {
       amount: 120,
     },
     includes: {
-      header: "Включает:",
       items: [
-        { text: "Продолжительность - 2 часа", icon: "check" },
-        { text: "Любимый герой", icon: "check" },
-        { text: "Музыкальное сопровожение", icon: "check" },
-        { text: "Тематический реквизит", icon: "check" },
-        { text: "Активные игры и танцы", icon: "check" },
-        { text: "Аквагрим", icon: "check" },
-        { text: "Вынос вашего тортика", icon: "check" }
+        { text: "prices.plans.extended.items.0.text" },
+        { text: "prices.plans.extended.items.1.text" },
+        { text: "prices.plans.extended.items.2.text" },
+        { text: "prices.plans.extended.items.3.text" },
+        { text: "prices.plans.extended.items.4.text" },
+        { text: "prices.plans.extended.items.5.text" },
+        { text: "prices.plans.extended.items.6.text" }
       ]
     },
   }
@@ -86,7 +83,13 @@ export const aboutUsContent = {
 };
 
 export const benefits = [
-  {value: '+1000', title: 'Поставленных Праздников'},
-  {value: '+30', title: 'Уникальных Персонажей'},
-  {value: '+9', title: 'Лет Опыта'}
+  {value: '+1000', title: 'benefits.list.first'},
+  {value: '+30', title: 'benefits.list.second'},
+  {value: '+9', title: 'benefits.list.third'}
+]
+
+export const languages = [
+  {value: 'ru', svg: <Russia />},
+  {value: 'lv', svg: <Latvia />},
+  {value: 'en', svg: <UnitedKingdom />}
 ]

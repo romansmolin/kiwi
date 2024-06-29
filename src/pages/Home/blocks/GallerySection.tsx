@@ -5,6 +5,7 @@ import ImageCarousel from '@/components/ImageCarousel';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
 
 const carouselImages = [
     'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718803796/Gallery1_yioh9a.jpg',
@@ -15,6 +16,7 @@ const carouselImages = [
 
 const GallerySection = () => {
     const [photoIndex, setPhotoIndex] = useState(1);
+    const { t } = useTranslation("home")
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -23,6 +25,7 @@ const GallerySection = () => {
 
         return () => clearInterval(interval);
     }, []);
+
     return (
         <>
             <div
@@ -33,14 +36,13 @@ const GallerySection = () => {
                         <div
                             className="inline-flex rounded border border-gray-200 bg-gray-100 px-2 py-1 text-sm leading-4 text-primary-600"
                         >
-                            Лучшие Детские Праздники
+                            {t("gallery.subtitle")}
                         </div>
                         <h2 className="mt-4 text-4xl text-primary-600">
-                            Новый подход в организации праздников
+                            {t("gallery.title")}
                         </h2>
                         <h2 className="mt-4 text-xl leading-relaxed text-primary-600">
-                            Компания Kiwi Animators организует праздники, придерживаясь индивидуального подхода к каждому клиенту. Мы предлагаем широкий спектр дополнительных услуг, которые могут значительно улучшить Ваше мероприятие.
-                            Узнайте больше, уже сегодня!
+                            {t("gallery.text")}
                         </h2>
                         <div
                             className="flex flex-col justify-center gap-2 pt-10 sm:flex-row sm:items-center lg:justify-start"
@@ -50,14 +52,14 @@ const GallerySection = () => {
                                     href="javascript:void(0)"
                                 >
                                     <Download />
-                                    <span>Скачать каталог</span>
+                                    <span>{t("gallery.download")}</span>
                                 </Link>
                             </Button>
                             <Button asChild className='bg-primary-600 p-6'>
                                 <Link
                                     href="javascript:void(0)"
                                 >
-                                    <span>Доступные герои</span>
+                                    <span>{t("gallery.characters")}</span>
                                 </Link>
                             </Button>
                         </div>

@@ -4,6 +4,7 @@ import HeroCard from "./HeroCard";
 import OtpForm from "./OtpForm";
 import Spinner from "./Spinner";
 import Gallery from "./Gallery";
+import LanguageSelector from "./LanguageSelector";
 
 export  {
     Header,
@@ -11,5 +12,6 @@ export  {
     HeroCard,
     OtpForm,
     Spinner,
-    Gallery
+    Gallery,
+    LanguageSelector
 }
