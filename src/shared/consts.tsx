@@ -89,7 +89,7 @@ export const benefits = [
 ]
 
 export const languages = [
-  {value: 'ru', svg: <Russia />},
-  {value: 'lv', svg: <Latvia />},
-  {value: 'en', svg: <UnitedKingdom />}
+  {value: 'ru', svg: <Russia />, title: "Russian"},
+  {value: 'lv', svg: <Latvia />, title: "Latvian"},
+  {value: 'en', svg: <UnitedKingdom />, title: "English"}
 ]

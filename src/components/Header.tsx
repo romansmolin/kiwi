@@ -46,9 +46,13 @@ const itemVariants = {
 
 
 const Header: React.FC = () => {
-    const { t } = useTranslation("common")
+    const { t, lang } = useTranslation("common")
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpened, setIsMenuOpened] = useState(false);
+
+    useEffect(() => {
+        console.log('HAPPY HOURS: ', lang)
+    }, [lang]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -58,6 +62,7 @@ const Header: React.FC = () => {
                 setIsScrolled(false);
             }
         };
+        
 
         if (window.scrollY > 0) {
             setIsScrolled(true);
@@ -94,12 +99,12 @@ const Header: React.FC = () => {
                         </nav>
                     </div>
 
-                    <div className="hidden lg:block">
+                    <div className="hidden md:block">
                         <LanguageSelector />
                     </div>
 
-                    <div className="flex items-center gap-4">
-                        <div className="block md:hidden">
+                    <div className="flex items-center gap-4 md:hidden">
+                        <div className="block">
                             <button onClick={openMenu} className="rounded bg-white p-2 text-gray-600 transition hover:text-gray-600/75">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"

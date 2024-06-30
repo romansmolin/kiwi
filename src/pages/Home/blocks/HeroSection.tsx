@@ -32,7 +32,7 @@ const HeroSection = () => {
                     </div>
                 </div>
             </div>
-
+        
             {/* Main Photo */}
             <div className='flex justify-center'>
                 <Image
