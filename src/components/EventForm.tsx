@@ -265,7 +265,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
         <div className='h-[550px] flex justify-center items-center flex-col gap-6'>
             <div className="mx-auto max-w-lg text-center">
                 <h2 className="text-primary-600 text-2xl  sm:text-3xl">
-                    {t("contacts.form.person-verificationl")}
+                    {t("contacts.form.person-verification")}
                 </h2>
                 <p className="mt-4 text-primary-500">
                     {t("contacts.form.sms-code")}

@@ -3,6 +3,7 @@ import type { NextRequest } from "next/server";
 import i18n from '../i18n'
 
 export function middleware(request: NextRequest) {
+  console.log(i18n.defaultLocale)
   const locale = request.nextUrl.locale || i18n.defaultLocale;
   request.nextUrl.searchParams.set("lang", locale);
   request.nextUrl.href = request.nextUrl.href.replace(`/${locale}`, "");

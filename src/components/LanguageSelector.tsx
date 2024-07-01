@@ -1,8 +1,9 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState, MouseEvent } from 'react'
 import { languages } from '@/shared/consts'
 import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
+
 
 interface LanguageSelectorProps {
     closeMobileMenu?: () => void;
@@ -14,9 +15,25 @@ const LanguageSelector:React.FC<LanguageSelectorProps>= ({ closeMobileMenu }) =>
     const [isClicked, setIsClicked] = useState(false)
     const [currentLang, setCurrentLang] = useState(languages.filter(language => language.value === lang)[0])
 
+    const selectorRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        const handleClickOutside: EventListener = (event) => {
+            if (selectorRef.current && !selectorRef.current.contains(event.target as Node)) {
+                setIsClicked(false); 
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [selectorRef]);
+
     return (
         <>
-            <div className='hidden md:block'>
+            <div ref={selectorRef} className='hidden md:block'>
                 <div className='cursor-pointer' onClick={() => setIsClicked(prevState => !prevState)}>
                     {currentLang?.svg}
                 </div>
