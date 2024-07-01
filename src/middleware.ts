@@ -8,3 +8,4 @@ export function middleware(request: NextRequest) {
   request.nextUrl.href = request.nextUrl.href.replace(`/${locale}`, "");
   return NextResponse.rewrite(request.nextUrl);
 }
+

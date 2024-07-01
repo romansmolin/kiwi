@@ -3,7 +3,7 @@ import Russia from "@/components/icons/Russia";
 import UnitedKingdom from "@/components/icons/UnitedKingdom";
 
 export const menuItems = [
-  { label: 'header.home', href: '/' },
+  { label: 'header.home', href: 'home' },
   { label: 'header.prices', href: '/#price' },
   { label: 'header.contacts', href: '/#contact-us' },
   { label: 'header.about-us', href: '/about' },

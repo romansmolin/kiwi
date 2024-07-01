@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import { Rubik_Bubbles } from "next/font/google";
 import '../shared/globals.css'
 import dynamic from "next/dynamic";
-// import Header from "../components/Header";
 import useTranslation from "next-translate/useTranslation";
 
 
-const Header = dynamic(() => import('../components/Header'), { ssr: false })
 const bubbles = Rubik_Bubbles({ weight: '400', subsets: ['latin', 'cyrillic'], })
 
 //TODO: SEO OPTIMIZATION
@@ -21,7 +19,6 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
 	return (
 		<html lang={lang} >
 			<body className={`${bubbles.className} main-page-gradient flex flex-col p-4 lg:p-0`}>
-				<Header />
 				<main className="mt-10 max-w-screen-xl w-[100%] m-auto flex-1">
 					{children}
 				</main>

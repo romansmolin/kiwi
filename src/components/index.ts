@@ -13,5 +13,5 @@ export  {
     OtpForm,
     Spinner,
     Gallery,
-    LanguageSelector
+    LanguageSelector,
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import Characters from '@/pages/Characters/Characters'
 import { axiosClient } from '@/shared/api/axiosClient';
+import { Header } from '@/components';
 
 type Character = {
 	name: string;
@@ -39,6 +40,7 @@ const CharactersPage: React.FC<SearchParams> = async ({ searchParams }) => {
 
 	return (
 		<>
+			<Header />
 			<Characters
 				characters={characters.results}
 				totalPages={totalPages}

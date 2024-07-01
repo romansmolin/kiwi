@@ -51,10 +51,6 @@ const Header: React.FC = () => {
     const [isMenuOpened, setIsMenuOpened] = useState(false);
 
     useEffect(() => {
-        console.log('HAPPY HOURS: ', lang)
-    }, [lang]);
-
-    useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
                 setIsScrolled(true);
@@ -62,7 +58,7 @@ const Header: React.FC = () => {
                 setIsScrolled(false);
             }
         };
-        
+
 
         if (window.scrollY > 0) {
             setIsScrolled(true);
@@ -81,7 +77,7 @@ const Header: React.FC = () => {
             <div className="mx-auto max-w-screen-xl">
                 <div className="flex h-height-for-header items-center justify-between">
                     <div className="md:flex md:items-center md:gap-12">
-                        <Link className="block text-teal-600" href="/">
+                        <Link className="block text-teal-600" href={`/?lang=${lang}`} as={`/${lang}`}>
                             <span className="sr-only">Home</span>
                             <Logo className="h-[70px] w-[70px]" />
                         </Link>
@@ -92,7 +88,13 @@ const Header: React.FC = () => {
                             <ul className="flex items-center gap-6 text-lg">
                                 {menuItems.map(menuItem => (
                                     <li key={menuItem.label}>
-                                        <Link className="text-primary-600 transition hover:text-white" href={menuItem.href}> {t(menuItem.label)} </Link>
+                                        <Link
+                                            className="text-primary-600 transition hover:text-white"
+                                            href={`${menuItem.href}?lang=${lang}`}
+                                            as={`/${lang}${menuItem.href === 'home' ? '' : menuItem.href}`}
+                                        >
+                                            {t(menuItem.label)}
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
