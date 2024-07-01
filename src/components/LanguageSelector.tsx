@@ -25,7 +25,7 @@ const LanguageSelector:React.FC<LanguageSelectorProps>= ({ closeMobileMenu }) =>
                     <div className='bg-white absolute rounded-md p-5 lg:right-4 xl:right-8 2xl:right-[unset]'>
                         <ul className='flex flex-col gap-5'>
                             {languages.map(language => (
-                                <li className='cursor-pointer text-primary-600' onClick={() => setCurrentLang(language)}>
+                                <li key={language.value} className='cursor-pointer text-primary-600' onClick={() => setCurrentLang(language)}>
                                     <Link href={`/${language?.value}`} className='flex gap-5 items-center'>
                                         {language?.svg}
                                         {language?.title}
@@ -41,6 +41,7 @@ const LanguageSelector:React.FC<LanguageSelectorProps>= ({ closeMobileMenu }) =>
                 <ul className='flex gap-5'>
                     {languages.map(language => (
                         <li 
+                            key={language.value}
                             className='cursor-pointer text-primary-600' 
                             onClick={() => {
                                 setCurrentLang(language)
