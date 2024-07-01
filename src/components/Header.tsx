@@ -140,9 +140,17 @@ const Header: React.FC = () => {
                                     className="text-primary-600 text-lg"
                                     onClick={openMenu}
                                 >
-                                    <a href={menuItem.href}>{t(menuItem.label)}</a>
+                                    <Link
+                                        href={`${menuItem.href}?lang=${lang}`}
+                                        as={`/${lang}${menuItem.href === 'home' ? '' : menuItem.href}`}
+                                    >
+                                        {t(menuItem.label)}
+                                    </Link>
                                 </motion.li>
                             ))}
+                            <motion.div variants={itemVariants}>
+                                <LanguageSelector closeMobileMenu={openMenu}/>
+                            </motion.div>
                         </motion.ul>
                     </motion.div>
                 )}

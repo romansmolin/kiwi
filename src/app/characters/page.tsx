@@ -2,6 +2,8 @@ import React from 'react'
 import Characters from '@/pages/Characters/Characters'
 import { axiosClient } from '@/shared/api/axiosClient';
 import { Header } from '@/components';
+import useTranslation from 'next-translate/useTranslation';
+
 
 type Character = {
 	name: string;
@@ -22,10 +24,10 @@ interface CharacterResponse {
 	}
 }
 
-const getCharacters = async (page: number, limit: number): Promise<CharacterResponse> => {
+const getCharacters = async (page: number, limit: number, lang: string): Promise<CharacterResponse> => {
 	try {
 		const response = await axiosClient.get<CharacterResponse>('/characters/all-characters', {
-			params: { page, limit }
+			params: { page, limit, lang }
 		});
 		return response.data;
 	} catch (error) {
@@ -36,7 +38,8 @@ const getCharacters = async (page: number, limit: number): Promise<CharacterResp
 
 const CharactersPage: React.FC<SearchParams> = async ({ searchParams }) => {
 	const { page } = searchParams
-	const { characters, totalPages } = await getCharacters(parseInt(page), 6);
+	const { lang } = useTranslation()
+	const { characters, totalPages } = await getCharacters(parseInt(page), 6, lang);
 
 	return (
 		<>

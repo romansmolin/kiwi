@@ -1,0 +1,21 @@
+{
+    "about-us": {
+        "first-block": {
+            "title": "Par mums",
+            "paragraphs": {
+                "first": "Sveiki, mani sauc Isida (esmu labajā pusē) un esmu psiholoģe, pedagoģe un ģestaltterapeite. Sāku strādāt kā animatora jau 15 gadu vecumā un jau vairāk nekā 16 gadus neesmu šķīrusies no šīs jautrās un svētku profesijas.",
+                "second": "Sveiki, mani sauc Alisa. Strādāju kā animatore vairāk nekā 7 gadus. Es esmu tas cilvēks, kas prot organizēt komandu, vienmēr atbildīgi pieiet darbam un nodrošina, ka svētki tiek svinēti pilnvērtīgi."
+            }
+        },
+        "second-block": {
+            "title": "Kāpēc jums vajadzētu mums uzticēties",
+            "items": [
+                 "Mēs esam strādājuši kā animatori dažādās Rīgas firmās, kā arī esam guvuši pieredzi Kaliningradas pilsētā",
+                 "Mums ir bagātīga pieredze brīvprātīgajā darbā",
+                 "Mēs katru gadu organizējam sociālus pasākumus, piemēram, 'Bezmaksas svētki ģimenei' un 'Slimnīca Plīša draugiem'",
+                 "2015. gadā mēs izveidojām vasaras 'Labestības korporācijas nometni'"
+            ]
+        },
+        "gallery-title": "Tā izskatās mūsu svētki"
+    }
+}

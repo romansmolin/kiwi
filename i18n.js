@@ -4,7 +4,7 @@ module.exports = {
     pages: {
       "*": ["common"],
       "/": ["home"],
-      "/about": ["home"]
+      "/about": ["about"]
     },
   };
   

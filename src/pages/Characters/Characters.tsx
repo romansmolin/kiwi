@@ -10,6 +10,7 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination"
+import useTranslation from 'next-translate/useTranslation';
 
 interface Character {
     name: string;
@@ -20,7 +21,7 @@ interface CharactersPageProps {
     characters: Character[],
     totalPages: number
 }
-const Characters: React.FC<CharactersPageProps> = ({characters, totalPages}) => {
+const Characters: React.FC<CharactersPageProps> = ({ characters, totalPages }) => {
     const paginationItems = Array.from({ length: totalPages }, (_, index) => index + 1);
 
     return (
