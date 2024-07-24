@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Rubik_Bubbles } from "next/font/google";
 import '../shared/globals.css'
-import dynamic from "next/dynamic";
-import useTranslation from "next-translate/useTranslation";
 
 const bubbles = Rubik_Bubbles({ weight: '400', subsets: ['latin', 'cyrillic'], })
 
@@ -15,10 +13,8 @@ export const metadata: Metadata = {
 
 
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
-	const { t, lang } = useTranslation()
-
 	return (
-		<html lang={lang} >
+		<html lang={'en'} >
 			<body className={`${bubbles.className} main-page-gradient flex flex-col p-4 lg:p-0`}>
 				{/* HERE SHOULD BE HEADER BUT IT IS  CLIENT COMPONENT */}
 				<main className="mt-10 max-w-screen-xl w-[100%] m-auto flex-1">

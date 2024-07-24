@@ -3,9 +3,10 @@ import React from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import useTranslation from 'next-translate/useTranslation'
+import { getI18n } from '../../../../locales/server'
 
-const HeroSection = () => {
-    const { t } = useTranslation("home")
+const HeroSection = async () => {
+    const t = await getI18n()
 
     return (
         <section className="flex flex-col lg:flex-row gap-10 lg:gap-8 pt-10 lg:pt-10 lg:pb-0 xl:h-auto">
