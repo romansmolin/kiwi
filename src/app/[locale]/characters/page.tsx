@@ -14,7 +14,10 @@ type Character = {
 type SearchParams = {
 	searchParams: {
 		page: string;
-	};
+	},
+	params: {
+		locale: string
+	}
 }
 interface CharacterResponse {
 	total: number;
@@ -36,19 +39,16 @@ const getCharacters = async (page: number, limit: number, lang: string): Promise
 	}
 }
 
-const CharactersPage: React.FC<SearchParams> = async ({ searchParams }) => {
+const CharactersPage: React.FC<SearchParams> = async ({ searchParams, params }) => {
 	const { page } = searchParams
-	const { lang } = useTranslation()
-	const { characters, totalPages } = await getCharacters(parseInt(page), 6, lang);
-
+	const { locale } = params
+	const { characters, totalPages } = await getCharacters(parseInt(page), 6, locale);
+	
 	return (
-		<>
-			<Header />
-			<Characters
-				characters={characters.results}
-				totalPages={totalPages}
-			/>
-		</>
+		<Characters
+			characters={characters.results}
+			totalPages={totalPages}
+		/>
 	)
 }
 

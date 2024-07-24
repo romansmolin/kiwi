@@ -1,16 +1,13 @@
 import React from 'react'
 import HeroCard from '@/components/HeroCard'
-import { axiosClient } from '@/shared/api/axiosClient'
 import {
     Pagination,
     PaginationContent,
-    PaginationEllipsis,
     PaginationItem,
     PaginationLink,
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination"
-import useTranslation from 'next-translate/useTranslation';
 
 interface Character {
     name: string;

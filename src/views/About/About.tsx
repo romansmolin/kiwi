@@ -4,6 +4,7 @@ import { aboutUsContent } from '@/shared/consts'
 import Image from 'next/image'
 import Gallery from '@/components/Gallery'
 import useTranslation from 'next-translate/useTranslation'
+import { getI18n } from '../../../locales/server'
 
 const galleryImages = [
     'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718907028/event-3_uemn4t.jpg',
@@ -17,8 +18,8 @@ const galleryImages = [
     'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718907027/event-7_eet123.jpg',
 ]
 
-const About = () => {
-    const { t } = useTranslation("about")
+const About = async () => {
+    const t = await getI18n()
 
     return (
         <>
@@ -27,11 +28,16 @@ const About = () => {
                     <div className="text-primary-600 text-lg flex flex-col gap-5 lg:gap-8">
                         <div>
                             <h2 className="bg-gradient-to-r title-gradient bg-clip-text  text-transparent text-5xl text-center lg:text-left sm:text-5xl">
+                                {/* @ts-ignore */}
                                 {t(aboutUsContent.aboutSection.title)}
                             </h2>
                             <div className='mt-6'>
                                 {aboutUsContent.aboutSection.paragraphs.map((paragraph, index) => (
-                                    <p className='mt-5' key={index}>{t(paragraph)}</p>
+
+                                    <p className='mt-5' key={index}>
+                                        {/* @ts-ignore */}
+                                        {t(paragraph)}
+                                    </p>
                                 ))}
                             </div>
                         </div>
@@ -46,12 +52,15 @@ const About = () => {
 
                         <div>
                             <h2 className="bg-gradient-to-r title-gradient bg-clip-text  text-transparent text-5xl text-center lg:text-left sm:text-5xl">
+                                {/* @ts-ignore */}
                                 {t(aboutUsContent.trustSection.title)}
                             </h2>
                             <ul className="mt-6 list-none flex flex-col gap-5">
                                 {aboutUsContent.trustSection.points.map((point, index) => (
                                     <li className="flex gap-5 items-center" key={index}>
-                                        <span><Check /></span> {t(point)}
+                                        <span><Check /></span>
+                                        {/* @ts-ignore */}
+                                        {t(point)}
                                     </li>
                                 ))}
                             </ul>
@@ -70,7 +79,7 @@ const About = () => {
             </section>
             <section className='py-10'>
                 <h2 className='text-5xl text-center text-primary-600'>{t("about-us.gallery-title")}</h2>
-                <Gallery className="mt-10" images={galleryImages}/>
+                <Gallery className="mt-10" images={galleryImages} />
             </section>
         </>
     )
