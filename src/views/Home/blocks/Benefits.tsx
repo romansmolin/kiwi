@@ -1,9 +1,10 @@
 import React from 'react'
 import { benefits } from '@/shared/consts'
 import useTranslation from 'next-translate/useTranslation'
+import { getI18n } from '../../../../locales/server'
 
-const Benefits = () => {
-    const { t } = useTranslation("home")
+const Benefits = async () => {
+    const t = await getI18n()
 
     return (
         <section className="bg-primary-100 rounded-2xl flex flex-col items-center px-4 py-8 sm:px-6 sm:py-6 ">
@@ -20,6 +21,7 @@ const Benefits = () => {
                     <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:divide-x sm:divide-gray-100">
                         {benefits.map(benefit => (
                             <div key={benefit.title} className="flex flex-col px-4 py-8 text-center bg-white rounded-2xl">
+                                {/* @ts-ignore */}
                                 <dt className="order-last text-lg  text-primary-600">{t(benefit.title)}</dt>
 
                                 <dd className="text-4xl  text-primary-600 md:text-5xl">{benefit.value}</dd>

@@ -1,12 +1,12 @@
 import React from 'react'
-import KiwiFooterPhoto from '../../../assets/kiwi_footer.png'
-import Image from 'next/image'
 import EventForm from '@/components/EventForm'
 import { BsTelegram, BsWhatsapp, BsEnvelope, BsPhone } from 'react-icons/bs';
-import useTranslation from 'next-translate/useTranslation';
+import { getI18n, getCurrentLocale } from '../../../../locales/server';
+import { I18nProviderClient } from '../../../../locales/client';
 
-const ContactUs = () => {
-    const { t } = useTranslation("home")
+const ContactUs = async () => {
+    const t = await getI18n()
+    const locale = getCurrentLocale()
 
     return (
         <div className='relative sm:py-12'>
@@ -26,7 +26,9 @@ const ContactUs = () => {
                         ))}
                     </div>
                 </div>
-                <EventForm className='lg:flex-2 rounded-2xl bg-white px-4 py-8 sm:px-6 lg:px-8 flex-grow' />
+                <I18nProviderClient locale={locale}>
+                    <EventForm className='lg:flex-2 rounded-2xl bg-white px-4 py-8 sm:px-6 lg:px-8 flex-grow' />
+                </I18nProviderClient>
             </div>
         </div>
     )

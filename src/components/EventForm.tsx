@@ -30,6 +30,7 @@ import { Spinner, OtpForm } from './index'
 
 import { cn } from '@/lib/utils';
 import useTranslation from 'next-translate/useTranslation';
+import { useI18n } from '../../locales/client';
 
 
 interface EventFormProps {
@@ -43,8 +44,8 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
     const [loading, setLoading] = useState(false);
     const [otpCode, setOtpCode] = useState('')
     const [error, setError] = useState<string | null>(null);
-    const { t } = useTranslation("home")
-
+    const t = useI18n()
+    
     const formSchema = z.object({
         nameOfKid: z
             .string()

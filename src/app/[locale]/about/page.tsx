@@ -1,4 +1,4 @@
-import About from "@/pages/About/About";
+import About from "@/views/About/About";
 import { Header } from '@/components'
 
 export default function AboutUs() {

@@ -1,9 +1,10 @@
 import React from 'react'
 import { priceItems } from '@/shared/consts'
 import Check from '@/components/icons/Check'
-import useTranslation from 'next-translate/useTranslation'
-const Prices = () => {
-    const { t } = useTranslation("home")
+import { getI18n } from '../../../../locales/server'
+
+const Prices = async () => {
+    const t = await getI18n()
 
     return (
         <>
@@ -14,6 +15,7 @@ const Prices = () => {
                         <div key={`price-${price.price.amount}`} className={`divide-y relative flex-none divide-gray-200 rounded-2xl border border-gray-200 shadow-sm bg-white ${price.priority && 'lg:relative lg:bottom-14'}`}>
                             <div className="p-6 sm:px-8">
                                 <h2 className="text-3xl text-center font-medium text-primary-600">
+                                    {/* @ts-ignore */}
                                     {t(price.title)}
                                     <span className="sr-only">Plan</span>
                                 </h2>
@@ -31,6 +33,7 @@ const Prices = () => {
                                     {price.includes.items.map(item => (
                                         <li key={item.text} className="flex items-center gap-1 ">
                                             <Check className={' size-5'} />
+                                            {/* @ts-ignore */}
                                             <span className="text-primary-600 "> {t(item.text)} </span>
                                         </li>
                                     ))}

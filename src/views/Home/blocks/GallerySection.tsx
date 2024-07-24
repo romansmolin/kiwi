@@ -5,7 +5,7 @@ import ImageCarousel from '@/components/ImageCarousel';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 import Link from 'next/link';
-import useTranslation from 'next-translate/useTranslation';
+import { useI18n } from '../../../../locales/client';
 
 const carouselImages = [
     'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718803796/Gallery1_yioh9a.jpg',
@@ -16,8 +16,8 @@ const carouselImages = [
 
 const GallerySection = () => {
     const [photoIndex, setPhotoIndex] = useState(1);
-    const { t } = useTranslation("home")
-
+    const t = useI18n()
+    
     useEffect(() => {
         const interval = setInterval(() => {
             setPhotoIndex(prevIndex => (prevIndex % carouselImages.length) + 1);

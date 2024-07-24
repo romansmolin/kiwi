@@ -1,5 +1,5 @@
 import React from 'react'
-import Characters from '@/pages/Characters/Characters'
+import Characters from '@/views/Characters/Characters'
 import { axiosClient } from '@/shared/api/axiosClient';
 import { Header } from '@/components';
 import useTranslation from 'next-translate/useTranslation';

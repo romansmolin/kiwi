@@ -1,19 +1,16 @@
 "use client"
 import React, { useEffect, useRef, useState, MouseEvent } from 'react'
 import { languages } from '@/shared/consts'
-import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
-
-
+import { useCurrentLocale } from '../../locales/client'
 interface LanguageSelectorProps {
     closeMobileMenu?: () => void;
 }
 
 const LanguageSelector:React.FC<LanguageSelectorProps>= ({ closeMobileMenu }) => {
-    const { lang } = useTranslation()
-
+    const locale = useCurrentLocale()
     const [isClicked, setIsClicked] = useState(false)
-    const [currentLang, setCurrentLang] = useState(languages.filter(language => language.value === lang)[0])
+    const [currentLang, setCurrentLang] = useState(languages.filter(language => language.value === locale)[0])
 
     const selectorRef = useRef<HTMLDivElement>(null)
 
