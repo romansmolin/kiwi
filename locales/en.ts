@@ -138,5 +138,19 @@ export default {
             "success-title": "Thank you! Your request has been sent.",
             "success-text": "We will contact you shortly."
         }
+    },
+    "seo": {
+        "home": {
+            "metaTitle": "Kiwi Animations - Premier Kids Event Services",
+            "metaDescription": "Discover Kiwi Animations, your go-to for unforgettable kids' events. Our professional animators and comprehensive services ensure magical experiences for children of all ages."
+        },
+        "about": {
+            "metaTitle": "About Us - Kiwi Animations",
+            "metaDescription": "Learn about Kiwi Animations, the leading provider of children's event services. Our team of professional animators is dedicated to creating unforgettable experiences for kids through a wide range of fun and engaging activities."
+        },
+        "characters": {
+            "metaTitle": "Meet Our Characters - Kiwi Animations",
+            "metaDescription": "Discover the magical characters of Kiwi Animations. Our diverse cast of animated characters brings joy and excitement to every children's event, creating unforgettable memories for kids of all ages."
+        }
     }
 } as const

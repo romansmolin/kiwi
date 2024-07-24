@@ -139,5 +139,19 @@ export default {
             "success-title": "Paldies! Jūsu pieprasījums tika nosūtīts.",
             "success-text": "Mēs sazināsimies ar jums tuvākajā laikā."
         }
+    },
+    "seo": {
+        "home": {
+            "metaTitle": "Kiwi Animations - Augstākās kvalitātes bērnu pasākumu pakalpojumi",
+            "metaDescription": "Atklājiet Kiwi Animations - jūsu uzticamais partneris neaizmirstamu bērnu pasākumu organizēšanā. Mūsu profesionālie animatori un plašie pakalpojumi nodrošina burvīgas pieredzes bērniem visās vecuma grupās."
+        },
+        "about": {
+            "metaTitle": "Par mums - Kiwi Animations",
+            "metaDescription": "Uzziniet vairāk par Kiwi Animations, vadošo bērnu pasākumu pakalpojumu sniedzēju. Mūsu profesionālo animatoru komanda ir apņēmusies radīt neaizmirstamus piedzīvojumus bērniem, piedāvājot plašu jautru un aizraujošu aktivitāšu klāstu."
+        },
+        "characters": {
+            "metaTitle": "Mūsu varoņi - Kiwi Animations",
+            "metaDescription": "Iepazīstieties ar burvīgajiem Kiwi Animations varoņiem. Mūsu daudzveidīgie animētie varoņi ienes prieku un aizrautību katrā bērnu pasākumā, radot neaizmirstamas atmiņas bērniem visās vecuma grupās."
+        }
     }
   } as const

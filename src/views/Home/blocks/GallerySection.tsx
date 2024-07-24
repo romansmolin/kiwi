@@ -49,7 +49,7 @@ const GallerySection = () => {
                         >
                             <Button asChild className='bg-primary-600 p-6 gap-4'>
                                 <Link
-                                    href="javascript:void(0)"
+                                    href="#"
                                 >
                                     <Download />
                                     <span>{t("gallery.download")}</span>
@@ -57,7 +57,7 @@ const GallerySection = () => {
                             </Button>
                             <Button asChild className='bg-primary-600 p-6'>
                                 <Link
-                                    href="javascript:void(0)"
+                                    href="#"
                                 >
                                     <span>{t("gallery.characters")}</span>
                                 </Link>

@@ -3,6 +3,7 @@ import Characters from '@/views/Characters/Characters'
 import { axiosClient } from '@/shared/api/axiosClient';
 import { Header } from '@/components';
 import useTranslation from 'next-translate/useTranslation';
+import { getI18n } from '../../../../locales/server';
 
 
 type Character = {
@@ -24,6 +25,14 @@ interface CharacterResponse {
 	totalPages: number;
 	characters: {
 		results: Character[];
+	}
+}
+
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+	const t = await getI18n()
+	return {
+		title: `${t('seo.characters.metaTitle')}`,
+		description: `${t('seo.characters.metaDescription')}`
 	}
 }
 
