@@ -1,23 +1,27 @@
 "use client"
-import React, { useEffect, useRef, useState, MouseEvent } from 'react'
+import React, { useEffect, useRef, useState, MouseEvent, useCallback } from 'react'
 import { languages } from '@/shared/consts'
 import Link from 'next/link'
 import { useCurrentLocale } from '../../locales/client'
+import { usePathname } from 'next/navigation'
+import useGetCorrectHref from '@/hooks/getCorrectHref'
 interface LanguageSelectorProps {
     closeMobileMenu?: () => void;
 }
 
-const LanguageSelector:React.FC<LanguageSelectorProps>= ({ closeMobileMenu }) => {
+const LanguageSelector: React.FC<LanguageSelectorProps> = ({ closeMobileMenu }) => {
     const locale = useCurrentLocale()
     const [isClicked, setIsClicked] = useState(false)
     const [currentLang, setCurrentLang] = useState(languages.filter(language => language.value === locale)[0])
+    const pathname = usePathname()
+    const getCorrectHref = useGetCorrectHref(locale)
 
     const selectorRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         const handleClickOutside: EventListener = (event) => {
             if (selectorRef.current && !selectorRef.current.contains(event.target as Node)) {
-                setIsClicked(false); 
+                setIsClicked(false);
             }
         };
 
@@ -40,7 +44,7 @@ const LanguageSelector:React.FC<LanguageSelectorProps>= ({ closeMobileMenu }) =>
                         <ul className='flex flex-col gap-5'>
                             {languages.map(language => (
                                 <li key={language.value} className='cursor-pointer text-primary-600' onClick={() => setCurrentLang(language)}>
-                                    <Link href={`/${language?.value}`} className='flex gap-5 items-center'>
+                                    <Link href={getCorrectHref(language.value, pathname)} className='flex gap-5 items-center'>
                                         {language?.svg}
                                         {language?.title}
                                     </Link>
@@ -54,9 +58,9 @@ const LanguageSelector:React.FC<LanguageSelectorProps>= ({ closeMobileMenu }) =>
             <div className='md:hidden flex justify-center'>
                 <ul className='flex gap-5'>
                     {languages.map(language => (
-                        <li 
+                        <li
                             key={language.value}
-                            className='cursor-pointer text-primary-600' 
+                            className='cursor-pointer text-primary-600'
                             onClick={() => {
                                 setCurrentLang(language)
 
@@ -65,7 +69,7 @@ const LanguageSelector:React.FC<LanguageSelectorProps>= ({ closeMobileMenu }) =>
                                 }
                             }}
                         >
-                            <Link href={`/${language?.value}`} className='flex gap-5 items-center'>
+                            <Link href={getCorrectHref(language.value, pathname)} className='flex gap-5 items-center'>
                                 {language?.svg}
                             </Link>
                         </li>
