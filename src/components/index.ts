@@ -5,6 +5,7 @@ import OtpForm from "./OtpForm";
 import Spinner from "./Spinner";
 import Gallery from "./Gallery";
 import LanguageSelector from "./LanguageSelector";
+import LoadingSkeleton from "./LoadingSkeleton";
 
 export  {
     Header,
@@ -14,4 +15,5 @@ export  {
     Spinner,
     Gallery,
     LanguageSelector,
+    LoadingSkeleton
 }

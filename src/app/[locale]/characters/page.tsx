@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Characters from '@/views/Characters/Characters'
 import { axiosClient } from '@/shared/api/axiosClient';
-import { Header } from '@/components';
+import { Header, LoadingSkeleton } from '@/components';
 import useTranslation from 'next-translate/useTranslation';
 import { getI18n } from '../../../../locales/server';
+import { Divide } from 'lucide-react';
 
 
 type Character = {
@@ -54,10 +55,13 @@ const CharactersPage: React.FC<SearchParams> = async ({ searchParams, params }) 
 	const { characters, totalPages } = await getCharacters(parseInt(page), 6, locale);
 	
 	return (
-		<Characters
-			characters={characters.results}
-			totalPages={totalPages}
-		/>
+			<Suspense fallback={<LoadingSkeleton />}>
+				<Characters
+					characters={characters.results}
+					totalPages={totalPages}
+					currentPage={page}
+				/>
+			</Suspense>
 	)
 }
 

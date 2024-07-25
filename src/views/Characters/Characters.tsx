@@ -9,6 +9,7 @@ import {
     PaginationPrevious,
 } from "@/components/ui/pagination"
 
+
 interface Character {
     name: string;
     image: string;
@@ -16,9 +17,10 @@ interface Character {
 }
 interface CharactersPageProps {
     characters: Character[],
-    totalPages: number
+    totalPages: number,
+    currentPage: any
 }
-const Characters: React.FC<CharactersPageProps> = ({ characters, totalPages }) => {
+const Characters: React.FC<CharactersPageProps> = ({ characters, totalPages, currentPage }) => {
     const paginationItems = Array.from({ length: totalPages }, (_, index) => index + 1);
 
     return (
@@ -35,7 +37,12 @@ const Characters: React.FC<CharactersPageProps> = ({ characters, totalPages }) =
             </div>
             <Pagination className='text-primary-600'>
                 <PaginationContent>
-                    <PaginationPrevious href="#" />
+                    <PaginationPrevious href={currentPage > 1 ? {
+                        pathname: '/characters',
+                        query: {
+                            page: currentPage - 1
+                        }
+                    } : '#'} />
                     {paginationItems?.map(item => (
                         <PaginationItem key={`item-${item}`}>
                             <PaginationLink href={{
@@ -47,7 +54,10 @@ const Characters: React.FC<CharactersPageProps> = ({ characters, totalPages }) =
                         </PaginationItem>
                     ))}
                     <PaginationItem>
-                        <PaginationNext href="#" />
+                        <PaginationNext href={currentPage < totalPages ? {
+                            pathname: '/characters',
+                            query: { page: parseInt(currentPage) + 1 },
+                        } : '#'} />
                     </PaginationItem>
                 </PaginationContent>
             </Pagination>
