@@ -35,17 +35,18 @@ import { useI18n } from '../../locales/client';
 
 interface EventFormProps {
     className?: string
+    isMini?: boolean
 }
 
 type FormStateType = 'initial' | 'otp-verification' | 'success' | 'loading'
 
-const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
+const EventForm: React.FC<EventFormProps> = ({ className = '', isMini = false }) => {
     const [formState, setFormState] = useState<FormStateType>('initial');
     const [loading, setLoading] = useState(false);
     const [otpCode, setOtpCode] = useState('')
     const [error, setError] = useState<string | null>(null);
     const t = useI18n()
-    
+
     const formSchema = z.object({
         nameOfKid: z
             .string()
@@ -137,9 +138,11 @@ const EventForm: React.FC<EventFormProps> = ({ className = '' }) => {
         <>
             <div className="mx-auto max-w-lg text-center">
                 <h2 className="text-primary-600 text-2xl  sm:text-3xl">{t("contacts.form.title")}</h2>
-                <p className="mt-4 text-primary-500 text-lg">
-                    {t("contacts.form.text")}
-                </p>
+                {!isMini && (
+                    <p className="mt-4 text-primary-500 text-lg">
+                        {t("contacts.form.text")}
+                    </p>
+                )}
             </div>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 mb-0 mt-8">
