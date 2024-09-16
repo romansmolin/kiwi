@@ -13,6 +13,7 @@ const FormWidget: React.FC = () => {
     const isInViewport = useIsVisibleInViewport(formRef)
 
     useEffect(() => {
+        console.log('hellllo')
         if (!isInViewport) {
             setIsVisible(false)
         }
@@ -30,7 +31,7 @@ const FormWidget: React.FC = () => {
 
                         window.scrollTo({ top: y, behavior: 'smooth' })
                     }
-                }, 100)
+                }, 300)
             }
             return newState
         })
