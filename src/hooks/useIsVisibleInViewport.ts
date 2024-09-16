@@ -1,29 +1,38 @@
 import { useState, useEffect, useRef } from 'react';
 
 const useIsVisibleInViewport = (ref: React.RefObject<HTMLElement>, partiallyVisible = false): boolean => {
-    const [isVisible, setIsVisible] = useState<boolean>(false);
+    const [isVisibleInViewport , setIsVisibleInViewport] = useState<boolean>(false);
+
+    const elementIsVisibleInViewport = (el: HTMLElement | null, partiallyVisible = false) => {
+        if (!el) return false;
+        const { top, left, bottom, right } = el.getBoundingClientRect();
+        const { innerHeight, innerWidth } = window;
+
+        return partiallyVisible
+            ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
+              ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
+            : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
+    };
 
     useEffect(() => {
-        if (!ref.current) return;
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                setIsVisible(partiallyVisible ? entry.isIntersecting : entry.intersectionRatio > 0);
-            },
-            {
-                threshold: partiallyVisible ? [0, 0.1] : [1] // Adjust threshold as needed
+        const handleScroll = () => {
+            if (ref.current) {
+                setIsVisibleInViewport(elementIsVisibleInViewport(ref.current, partiallyVisible));
             }
-        );
+        };
 
-        observer.observe(ref.current);
+        // Add event listener
+        window.addEventListener('scroll', handleScroll);
+        // Call handler right away so state gets updated with initial render
+        handleScroll();
 
         return () => {
-            // @ts-ignore
-            observer.unobserve(ref.current);
+            // Clean up event listener
+            window.removeEventListener('scroll', handleScroll);
         };
     }, [ref, partiallyVisible]);
 
-    return isVisible;
+    return isVisibleInViewport ;
 };
 
 export default useIsVisibleInViewport;
