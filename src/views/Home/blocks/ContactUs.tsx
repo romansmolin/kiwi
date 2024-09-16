@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import EventForm from '@/components/EventForm'
 import { BsTelegram, BsWhatsapp, BsEnvelope, BsPhone } from 'react-icons/bs';
 import { getI18n, getCurrentLocale } from '../../../../locales/server';
 import { I18nProviderClient } from '../../../../locales/client';
+import Link from 'next/link';
 
 const ContactUs = async () => {
     const t = await getI18n()
@@ -16,12 +17,19 @@ const ContactUs = async () => {
                     <p className='text-primary-600 text-lg text-center lg:text-start'>{t("contacts.text")}</p>
                     <div className='grid justify-center items-center grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-5'>
                         {contacts.map(contact => (
-                            <div key={contact.title} className='rounded-2xl p-6 flex items-center justify-between bg-white lg:max-w-[350px]'>
-                                <div className='flex flex-col'>
-                                    <h3 className='text-primary-600 text-2xl '>{contact.title}</h3>
-                                    <span>{contact.description}</span>
+                            <div key={contact.title} className='rounded-2xl p-6 flex items-center justify-between bg-white lg:max-w-[350px] h-full'>
+                                <div className='flex flex-col h-full w-[80%]'>
+                                    <div>
+                                        {contact.href ? (
+                                            <Link href={contact.href} className='text-primary-600 text-2xl'>{contact.title}</Link>
+                                        ) : (
+                                            <h3 className='text-primary-600 text-2xl'>{contact.title}</h3>
+
+                                        )}
+                                    </div>
+                                    <span className='block w-full max-w-full break-words'>{contact.description}</span>
                                 </div>
-                                {contact.icon && <span className="text-primary-600">{contact.icon}</span>}
+                                {contact.icon && <span className="text-primary-600 flex-shrink-0 ml-4">{contact.icon}</span>}
                             </div>
                         ))}
                     </div>
@@ -36,9 +44,15 @@ const ContactUs = async () => {
 
 export default ContactUs
 
-const contacts = [
-    { title: 'Telegram', description: '@romasmolin201', icon: <BsTelegram className='w-7 h-7' /> },
-    { title: 'WhatsApp', description: '+37120012057', icon: <BsWhatsapp className='w-7 h-7' /> },
-    { title: 'Email', description: 'romasmolin29@gmail.com', icon: <BsEnvelope className='w-7 h-7' /> },
-    { title: 'Phone', description: '+37120012057', icon: <BsPhone className='w-7 h-7' /> },
+interface Contacts {
+    title: string
+    description: string
+    icon: ReactNode
+    href?: string
+}
+const contacts: Contacts[] = [
+    { title: 'Telegram', description: '@kiwi_animatori', icon: <BsTelegram className='w-7 h-7' /> , href: 'https://t.me/+0xLq57qMfDY2ZTA0'},
+    { title: 'WhatsApp', description: '+371 22836761', icon: <BsWhatsapp className='w-7 h-7' /> },
+    { title: 'Email', description: 'alisa.bogdane2001@gmail.com', icon: <BsEnvelope className='w-7 h-7' /> },
+    { title: 'Phone', description: '+371 25239955', icon: <BsPhone className='w-7 h-7' /> },
 ];

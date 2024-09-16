@@ -6,6 +6,7 @@ import Spinner from "./Spinner";
 import Gallery from "./Gallery";
 import LanguageSelector from "./LanguageSelector";
 import LoadingSkeleton from "./LoadingSkeleton";
+import FormWidget from "./FormWidget";
 
 export  {
     Header,
@@ -15,5 +16,6 @@ export  {
     Spinner,
     Gallery,
     LanguageSelector,
-    LoadingSkeleton
+    LoadingSkeleton,
+    FormWidget
 }

@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: { locale: string } 
 export default function HomePage() {
 	return (
 		<Suspense fallback={<LoadingSkeleton />}>
-			<Home />
+			<Home />		
 		</Suspense>
 	)
 }

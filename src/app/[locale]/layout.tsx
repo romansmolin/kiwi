@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Rubik_Bubbles } from "next/font/google";
 import '../../shared/globals.css'
 import { ReactNode } from "react";
-import { Header } from "@/components";
+import { FormWidget, Header } from "@/components";
 import { I18nProviderClient } from "../../../locales/client";
 
 const bubbles = Rubik_Bubbles({ weight: '400', subsets: ['latin', 'cyrillic'], })
@@ -32,6 +32,7 @@ export default function RootLayout({ children, params }: Readonly<RootLayoutProp
                 <main className="mt-10 max-w-screen-xl w-[100%] m-auto flex-1">
                     {children}
                 </main>
+                <FormWidget />
             </body>
         </html>
     );
