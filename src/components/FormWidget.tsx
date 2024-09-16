@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react';
+import React, {  useRef, useState } from 'react';
 import EventForm from './EventForm';
 import { I18nProviderClient, useCurrentLocale } from '../../locales/client';
 import { X } from 'lucide-react';
@@ -9,8 +9,6 @@ import useIsVisibleInViewport from '@/hooks/useIsVisibleInViewport';
 const FormWidget: React.FC = () => {
     const [isVisible, setIsVisible] = useState<boolean>(false);
     const locale = useCurrentLocale();
-    const formRef = useRef<HTMLDivElement | null>(null); 
-    const isInViewport = useIsVisibleInViewport(formRef, true); 
 
     return (
         <I18nProviderClient locale={locale}>
@@ -23,12 +21,12 @@ const FormWidget: React.FC = () => {
 
             {isVisible &&
                 <div
-                    className='fixed p-5 mt-16 lg:mt-10 border border-dashed border-primary-400 right-[50%] 
+                    className='fixed p-5 z-50 lg:mt-10 border border-dashed border-primary-400 right-[50%] 
                     translate-x-[50%] lg:top-[50%] lg:-translate-y-[50%] w-full lg:w-[70%] lg:h-[80%] bg-primary-100 bg-opacity-50 
                     flex justify-center items-center rounded-lg custom-backdrop-filter'
                 >
                     <X className='absolute top-2 right-2 cursor-pointer text-primary-600' onClick={() => setIsVisible(false)} />
-                    <EventForm className='lg:w-fit ' isMini/>
+                    <EventForm className='lg:w-fit' isMini/>
                 </div>
             }
         </I18nProviderClient>
