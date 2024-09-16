@@ -21,6 +21,11 @@ html {
   );
 }
 
+.custom-backdrop-filter {
+  -webkit-backdrop-filter: blur(10px); /* Safari */
+  backdrop-filter: blur(10px);
+}
+
 .title-gradient {
   background-image: linear-gradient(to right, #f83c86, #e91f64, #ca0c47);
 }

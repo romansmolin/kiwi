@@ -13,7 +13,6 @@ const FormWidget: React.FC = () => {
     const isInViewport = useIsVisibleInViewport(formRef)
 
     useEffect(() => {
-        console.log('hellllo')
         if (!isInViewport) {
             setIsVisible(false)
         }
@@ -50,7 +49,7 @@ const FormWidget: React.FC = () => {
             {isVisible &&
                 <div ref={formRef} id='event-form' className='absolute p-5 mt-16 lg:mt-10 border border-dashed border-primary-400 right-[50%] 
                 translate-x-[50%] lg:top-[50%] lg:-translate-y-[50%] w-full lg:w-[70%] lg:h-[80%] bg-primary-100 bg-opacity-50 
-                flex justify-center items-center rounded-lg backdrop-filter backdrop-blur-lg'>
+                flex justify-center items-center rounded-lg custom-backdrop-filter'>
                     <X className='absolute top-2 right-2 cursor-pointer text-primary-600' onClick={() => setIsVisible(false)} />
                     <EventForm />
                 </div>
