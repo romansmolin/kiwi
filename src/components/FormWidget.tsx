@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import EventForm from './EventForm';
 import { I18nProviderClient, useCurrentLocale } from '../../locales/client';
 import { X } from 'lucide-react';
