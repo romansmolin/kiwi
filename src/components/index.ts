@@ -8,6 +8,7 @@ import LanguageSelector from "./LanguageSelector";
 import LoadingSkeleton from "./LoadingSkeleton";
 import FormWidget from "./FormWidget";
 import FormModal from "./FormModal";
+import PaginationControl from "./PaginationControl";
 
 export  {
     Header,
@@ -19,5 +20,6 @@ export  {
     LanguageSelector,
     LoadingSkeleton,
     FormWidget,
-    FormModal
+    FormModal,
+    PaginationControl
 }

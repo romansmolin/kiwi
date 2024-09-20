@@ -50,7 +50,7 @@ const getCharacters = async (page: number, limit: number, lang: string): Promise
 }
 
 const CharactersPage: React.FC<SearchParams> = async ({ searchParams, params }) => {
-	const { page } = searchParams
+	const { page } = searchParams 
 	const { locale } = params
 	const { characters, totalPages } = await getCharacters(parseInt(page), 6, locale);
 	
@@ -59,7 +59,7 @@ const CharactersPage: React.FC<SearchParams> = async ({ searchParams, params }) 
 				<Characters
 					characters={characters.results}
 					totalPages={totalPages}
-					currentPage={page}
+					currentPage={page || 1}
 				/>
 			</Suspense>
 	)

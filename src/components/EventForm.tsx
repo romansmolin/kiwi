@@ -136,11 +136,14 @@ const EventForm: React.FC<EventFormProps> = ({ className = '', isMini = false })
     const renderForm = () => (
         <>
             <div className="mx-auto max-w-lg text-center">
-                <h2 className="text-primary-600 text-2xl  sm:text-3xl">{t("contacts.form.title")}</h2>
                 {!isMini && (
-                    <p className="mt-4 text-primary-500 text-lg">
-                        {t("contacts.form.text")}
-                    </p>
+                    <>
+                        <h2 className="text-primary-600 text-2xl  sm:text-3xl">{t("contacts.form.title")}</h2>
+
+                        <p className="mt-4 text-primary-500 text-lg">
+                            {t("contacts.form.text")}
+                        </p>
+                    </>
                 )}
             </div>
             <Form {...form}>

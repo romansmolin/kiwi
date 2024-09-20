@@ -1,10 +1,11 @@
 
 "use client"
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import EventForm from './EventForm'
 import { X } from 'lucide-react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import useScrollLock from '@/hooks/useScrollLock'
 
 
 const FormModal = () => {
@@ -12,18 +13,7 @@ const FormModal = () => {
     const searchParams = useSearchParams()
     const isModalOpened = searchParams.get('showModal') === 'true'
     const pathname = usePathname()
-
-    useEffect(() => {
-        if (isModalOpened) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-
-        return () => {
-            document.body.style.overflow = '';
-        };
-    }, [isModalOpened]);
+    useScrollLock(isModalOpened)
 
     if (!isModalOpened) return null;
 
@@ -31,11 +21,11 @@ const FormModal = () => {
         const nextSearchParams = new URLSearchParams(searchParams.toString())
         nextSearchParams.delete('showModal')
 
-        router.replace(`${pathname}?${nextSearchParams}`)
+        router.replace(`${pathname}?${nextSearchParams}`, { scroll: false })
     }
 
     return (
-        <div className='fixed p-5 z-50 lg:mt-10 border border-dashed border-primary-400 right-[50%] 
+        <div className='fixed py-2 px-3 z-50 lg:mt-10 border border-dashed border-primary-400 right-[50%] 
             translate-x-[50%] lg:top-[50%] lg:-translate-y-[50%] w-full lg:w-[70%] lg:h-[80%] bg-primary-100 bg-opacity-50 
             flex justify-center items-center rounded-lg custom-backdrop-filter'
         >

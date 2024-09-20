@@ -8,6 +8,7 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination"
+import { PaginationControl } from '@/components';
 
 
 interface Character {
@@ -35,32 +36,10 @@ const Characters: React.FC<CharactersPageProps> = ({ characters, totalPages, cur
                     />
                 ))}
             </div>
-            <Pagination className='text-primary-600'>
-                <PaginationContent>
-                    <PaginationPrevious href={currentPage > 1 ? {
-                        pathname: '/characters',
-                        query: {
-                            page: currentPage - 1
-                        }
-                    } : '#'} />
-                    {paginationItems?.map(item => (
-                        <PaginationItem key={`item-${item}`}>
-                            <PaginationLink href={{
-                                pathname: '/characters',
-                                query: {
-                                    page: item
-                                }
-                            }}>{item}</PaginationLink>
-                        </PaginationItem>
-                    ))}
-                    <PaginationItem>
-                        <PaginationNext href={currentPage < totalPages ? {
-                            pathname: '/characters',
-                            query: { page: parseInt(currentPage) + 1 },
-                        } : '#'} />
-                    </PaginationItem>
-                </PaginationContent>
-            </Pagination>
+            <PaginationControl 
+                currentPage={parseInt(currentPage)} 
+                totalPages={totalPages}
+            />
         </section>
     )
 }
