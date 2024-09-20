@@ -4,7 +4,7 @@ import { languages } from '@/shared/consts'
 import Link from 'next/link'
 import { useCurrentLocale } from '../../locales/client'
 import { usePathname } from 'next/navigation'
-import useGetCorrectHref from '@/hooks/getCorrectHref'
+import useGetCorrectHref from '@/hooks/useGetCorrectHref'
 interface LanguageSelectorProps {
     closeMobileMenu?: () => void;
 }

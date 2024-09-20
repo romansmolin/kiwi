@@ -29,7 +29,6 @@ import { CalendarIcon } from "lucide-react"
 import { Spinner, OtpForm } from './index'
 
 import { cn } from '@/lib/utils';
-import useTranslation from 'next-translate/useTranslation';
 import { useI18n } from '../../locales/client';
 
 

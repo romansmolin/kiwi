@@ -7,6 +7,7 @@ import Gallery from "./Gallery";
 import LanguageSelector from "./LanguageSelector";
 import LoadingSkeleton from "./LoadingSkeleton";
 import FormWidget from "./FormWidget";
+import FormModal from "./FormModal";
 
 export  {
     Header,
@@ -17,5 +18,6 @@ export  {
     Gallery,
     LanguageSelector,
     LoadingSkeleton,
-    FormWidget
+    FormWidget,
+    FormModal
 }
