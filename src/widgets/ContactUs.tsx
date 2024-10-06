@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
 import EventForm from '@/components/EventForm'
 import { BsTelegram, BsWhatsapp, BsEnvelope, BsPhone } from 'react-icons/bs';
-import { getI18n, getCurrentLocale } from '../../../../locales/server';
-import { I18nProviderClient } from '../../../../locales/client';
+import { getI18n, getCurrentLocale } from '../../locales/server';
+import { I18nProviderClient } from '../../locales/client';
 import Link from 'next/link';
 
 const ContactUs = async () => {
@@ -21,7 +21,9 @@ const ContactUs = async () => {
                                 <div className='flex flex-col h-full w-[80%]'>
                                     <div>
                                         {contact.href ? (
-                                            <Link href={contact.href} className='text-primary-600 text-2xl'>{contact.title}</Link>
+                                            <Link href={contact.href} className='text-primary-600 text-2xl'>
+                                                <h3>{contact.title}</h3>
+                                            </Link>
                                         ) : (
                                             <h3 className='text-primary-600 text-2xl'>{contact.title}</h3>
 

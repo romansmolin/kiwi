@@ -73,90 +73,92 @@ const Header: React.FC = () => {
     }
 
     return (
-            <header className={cn('shadow-sm px-4 fixed w-full z-40 transition-all duration-1000 top-0 left-0', isScrolled && 'bg-primary-100', isMenuOpened && 'rounded-b')}>
-                <div className="mx-auto max-w-screen-xl">
-                    <div className="flex h-height-for-header items-center justify-between">
-                        <div className="md:flex md:items-center md:gap-12">
-                            <Link className="block text-teal-600" href={`/?lang=${locale}`} as={`/${locale}`}>
-                                <span className="sr-only">Home</span>
-                                <Logo className="h-[70px] w-[70px]" />
-                            </Link>
-                        </div>
+        <header className={cn('shadow-sm px-4 fixed w-full z-40 transition-all duration-1000 top-0 left-0', isScrolled && 'bg-primary-100', isMenuOpened && 'rounded-b')}>
+            <div className="mx-auto max-w-screen-xl">
+                <div className="flex h-height-for-header items-center justify-between">
+                    <div className="md:flex md:items-center md:gap-12">
+                        <Link className="block text-teal-600" href={`/?lang=${locale}`} as={`/${locale}`}>
+                            <span className="sr-only">Home</span>
+                            <Logo className="h-[70px] w-[70px]" />
+                        </Link>
+                    </div>
 
-                        <div className="hidden lg:block">
-                            <nav aria-label="Global">
-                                <ul className="flex items-center gap-6 text-lg">
-                                    {menuItems.map(menuItem => (
-                                        <li key={menuItem.label}>
-                                            <Link
-                                                className="text-primary-600 transition hover:text-white"
-                                                href={`/${locale}${menuItem.href === 'home' ? '' : menuItem.href}`}
+                    <div className="hidden lg:block">
+                        <nav aria-label="Global">
+                            <ul className="flex items-center gap-6 text-lg">
+                                {menuItems.map(menuItem => (
+                                    <li key={menuItem.label}>
+                                        <Link
+                                            className="text-primary-600 transition hover:text-white"
+                                            href={`/${locale}${menuItem.href === 'home' ? '' : menuItem.href}`}
 
-                                            >
+                                        >
+                                            <h4>
                                                 {/* @ts-ignore */}
                                                 {t(menuItem.label)}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </nav>
-                        </div>
+                                            </h4>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+                    </div>
 
-                        <div className="hidden md:block">
-                            <LanguageSelector />
-                        </div>
+                    <div className="hidden md:block">
+                        <LanguageSelector />
+                    </div>
 
-                        <div className="flex items-center gap-4 md:hidden">
-                            <div className="block">
-                                <button onClick={openMenu} className="rounded bg-white p-2 text-gray-600 transition hover:text-gray-600/75">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-5 w-5"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                    >
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                                    </svg>
-                                </button>
-                            </div>
+                    <div className="flex items-center gap-4 md:hidden">
+                        <div className="block">
+                            <button onClick={openMenu} className="rounded bg-white p-2 text-gray-600 transition hover:text-gray-600/75">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
-                <AnimatePresence>
-                    {isMenuOpened && (
-                        <motion.div
-                            initial="hidden"
-                            animate="visible"
-                            exit="hidden"
-                            variants={containerVariants}
-                            className={cn('w-full rounded bg-white')}
-                        >
-                            <motion.ul className="flex flex-col gap-6 text-center">
-                                {menuItems.map((menuItem) => (
-                                    <motion.li
-                                        key={menuItem.label}
-                                        variants={itemVariants}
-                                        className="text-primary-600 text-lg"
-                                        onClick={openMenu}
+            </div>
+            <AnimatePresence>
+                {isMenuOpened && (
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                        variants={containerVariants}
+                        className={cn('w-full rounded bg-white')}
+                    >
+                        <motion.ul className="flex flex-col gap-6 text-center">
+                            {menuItems.map((menuItem) => (
+                                <motion.li
+                                    key={menuItem.label}
+                                    variants={itemVariants}
+                                    className="text-primary-600 text-lg"
+                                    onClick={openMenu}
+                                >
+                                    <Link
+                                        href={`/${locale}${menuItem.href === 'home' ? '' : menuItem.href}`}
                                     >
-                                        <Link
-                                            href={`/${locale}${menuItem.href === 'home' ? '' : menuItem.href}`}
-                                        >
-                                            {/* @ts-ignore */}
-                                            {t(menuItem.label)}
-                                        </Link>
-                                    </motion.li>
-                                ))}
-                                <motion.div variants={itemVariants}>
-                                    <LanguageSelector closeMobileMenu={openMenu} />
-                                </motion.div>
-                            </motion.ul>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </header>
+                                        {/* @ts-ignore */}
+                                        {t(menuItem.label)}
+                                    </Link>
+                                </motion.li>
+                            ))}
+                            <motion.div variants={itemVariants}>
+                                <LanguageSelector closeMobileMenu={openMenu} />
+                            </motion.div>
+                        </motion.ul>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </header>
     );
 }
 

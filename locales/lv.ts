@@ -11,20 +11,29 @@ export default {
         "second-block": {
             "title": "Kāpēc jums vajadzētu mums uzticēties",
             "items": [
-                 "Mēs esam strādājuši kā animatori dažādās Rīgas firmās, kā arī esam guvuši pieredzi Kaliningradas pilsētā",
-                 "Mums ir bagātīga pieredze brīvprātīgajā darbā",
-                 "Mēs katru gadu organizējam sociālus pasākumus, piemēram, 'Bezmaksas svētki ģimenei' un 'Slimnīca Plīša draugiem'",
-                 "2015. gadā mēs izveidojām vasaras 'Labestības korporācijas nometni'"
+                "Mēs esam strādājuši kā animatori dažādās Rīgas firmās, kā arī esam guvuši pieredzi Kaliningradas pilsētā",
+                "Mums ir bagātīga pieredze brīvprātīgajā darbā",
+                "Mēs katru gadu organizējam sociālus pasākumus, piemēram, 'Bezmaksas svētki ģimenei' un 'Slimnīca Plīša draugiem'",
+                "2015. gadā mēs izveidojām vasaras 'Labestības korporācijas nometni'"
             ]
         },
         "gallery-title": "Tā izskatās mūsu svētki"
+    },
+    "payments-options": {
+        "desclaimer": "Maksājums tiek veikts tikai pēc pasākuma apstiprināšanas. Jūs saņemsiet rēķinu uz norādīto e-pasta adresi. Lūdzu, pārbaudiet savu e-pastu un pārliecinieties, ka visi dati ir pareizi pirms maksājuma veikšanas. Ja jums ir kādi jautājumi, lūdzu, sazinieties ar mūsu atbalsta komandu.",
+        "heading": "Maksājuma informācija",
+        "bank-name": "Bankas nosaukums",
+        "account-name": "Konta nosaukums",
+        "account-number": "Konta numurs",
+        "desclaimer-heading": 'Bridinājums' 
     },
     "header": {
         "home": "Sākums",
         "prices": "Cenas",
         "contacts": "Kontakti",
         "about-us": "Par mums",
-        "characters": "Varoņi"
+        "characters": "Varoņi",
+        "payment-options": "Maksājiet"
     },
     "hero-section": {
         "title": "Bērnu Pasakumi",
@@ -154,4 +163,4 @@ export default {
             "metaDescription": "Iepazīstieties ar burvīgajiem Kiwi Animations varoņiem. Mūsu daudzveidīgie animētie varoņi ienes prieku un aizrautību katrā bērnu pasākumā, radot neaizmirstamas atmiņas bērniem visās vecuma grupās."
         }
     }
-  } as const
+} as const

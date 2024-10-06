@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
-import { Rubik_Bubbles } from "next/font/google";
+import { Rubik_Bubbles, Inter } from "next/font/google";
 import '../../shared/globals.css'
 import { ReactNode } from "react";
 import { FormModal, FormWidget, Header } from "@/components";
 import { I18nProviderClient } from "../../../locales/client";
 
-const bubbles = Rubik_Bubbles({ weight: '400', subsets: ['latin', 'cyrillic'], })
+export const bubbles = Rubik_Bubbles({
+    weight: '400',
+    subsets: ['latin', 'cyrillic'],
+    variable: '--bubbles'
+    
+})
+
+export const inter = Inter({
+    subsets: ['latin', 'cyrillic'],
+    display: 'swap',
+})
 
 //TODO: SEO OPTIMIZATION
 export const metadata: Metadata = {
@@ -27,19 +37,21 @@ export default function RootLayout({ children, params, searchParams }: Readonly<
     const { locale } = params
 
     return (
-        <html lang={locale} >
-            <body className={`${bubbles.className} main-page-gradient flex flex-col p-4 lg:p-0`}>
-                <I18nProviderClient locale={locale}>
-                    <Header />
-                </I18nProviderClient>
-                <main className="mt-10 max-w-screen-xl w-[100%] m-auto flex-1">
-                    {children}
-                </main>
-                <I18nProviderClient locale={locale}>
-                    <FormModal />
-                </I18nProviderClient>
-                <FormWidget />
-            </body>
-        </html>
+        <>
+            <html lang={locale} className={`${bubbles.variable}`}>
+                <body className={`${inter.className} main-page-gradient flex flex-col p-4 lg:p-0`}>
+                    <I18nProviderClient locale={locale}>
+                        <Header />
+                    </I18nProviderClient>
+                    <main className="mt-20 max-w-screen-xl space-y-4 w-[100%] m-auto flex-1">
+                        {children}
+                    </main>
+                    <I18nProviderClient locale={locale}>
+                        <FormModal />
+                    </I18nProviderClient>
+                    <FormWidget />
+                </body>
+            </html>
+        </>
     );
 }

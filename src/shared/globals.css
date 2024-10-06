@@ -1,9 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
 
 html {
   scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--bubbles);
 }
 
 .scroll-width {
@@ -16,7 +21,7 @@ html {
   background: rgb(63, 251, 211);
   background: radial-gradient(
     circle,
-    rgba(63, 251, 211, 1) 0%,
+    rgba(253, 237, 190, 1) 0%,
     rgba(238, 187, 198, 1) 100%
   );
 }

@@ -10,20 +10,29 @@ export default {
         "second-block": {
             "title": "Why You Should Trust Us",
             "items": [
-                 "We have worked as animators in various companies in Riga, as well as gained experience in the city of Kaliningrad",
-                 "We have extensive experience in volunteer work",
-                 "We organize social events annually, such as 'Free Holiday for the Family' and 'Hospital for Plush Friends'",
-                 "In 2015, we created the summer 'Corporation of Kindness Camp'"
+                "We have worked as animators in various companies in Riga, as well as gained experience in the city of Kaliningrad",
+                "We have extensive experience in volunteer work",
+                "We organize social events annually, such as 'Free Holiday for the Family' and 'Hospital for Plush Friends'",
+                "In 2015, we created the summer 'Corporation of Kindness Camp'"
             ]
         },
         "gallery-title": "This is what our parties look like"
+    },
+    "payments-options": {
+        "desclaimer": "Payment is required only after the event is confirmed. You will receive an invoice sent to the email address you provided. Please check your inbox and ensure all details are correct before making the payment. If you have any questions, please contact our support team.",
+        "heading": "Payment Information",
+        "bank-name": "Bank Name",
+        "account-name": "Account Name",
+        "account-number": "Account Number",
+        "desclaimer-heading": 'Warning'
     },
     "header": {
         "home": "Home",
         "prices": "Prices",
         "contacts": "Contacts",
         "about-us": "About Us",
-        "characters": "Characters"
+        "characters": "Characters",
+        "payment-options": "Payment options"
     },
     "hero-section": {
         "title": "Children's Parties",
@@ -40,44 +49,44 @@ export default {
         }
     },
     "prices": {
-            "title": "Prices",
-            "include": "Includes:",
-            "plans": {
-                "standard-plus": {
-                    "title": "Standard+",
-                    "items": [
-                        { "text": "Duration - 1.5 hours" },
-                        { "text": "Favorite character" },
-                        { "text": "Musical accompaniment" },
-                        { "text": "Thematic props" },
-                        { "text": "Active games and dances" },
-                        { "text": "Cake presentation" }
-                    ]
-                },
-                "standard": {
-                    "title": "Standard",
-                    "items": [
-                        { "text": "Duration - 1 hour" },
-                        { "text": "Favorite character" },
-                        { "text": "Musical accompaniment" },
-                        { "text": "Thematic props" },
-                        { "text": "Active games and dances" },
-                        { "text": "Cake presentation" }
-                    ]
-                },
-                "extended": {
-                    "title": "Extended",
-                    "items": [
-                        { "text": "Duration - 2 hours" },
-                        { "text": "Favorite character" },
-                        { "text": "Musical accompaniment" },
-                        { "text": "Thematic props" },
-                        { "text": "Active games and dances" },
-                        { "text": "Cake presentation" },
-                        { "text": "Face painting" }
-                    ]
-                }
+        "title": "Prices",
+        "include": "Includes:",
+        "plans": {
+            "standard-plus": {
+                "title": "Standard+",
+                "items": [
+                    { "text": "Duration - 1.5 hours" },
+                    { "text": "Favorite character" },
+                    { "text": "Musical accompaniment" },
+                    { "text": "Thematic props" },
+                    { "text": "Active games and dances" },
+                    { "text": "Cake presentation" }
+                ]
+            },
+            "standard": {
+                "title": "Standard",
+                "items": [
+                    { "text": "Duration - 1 hour" },
+                    { "text": "Favorite character" },
+                    { "text": "Musical accompaniment" },
+                    { "text": "Thematic props" },
+                    { "text": "Active games and dances" },
+                    { "text": "Cake presentation" }
+                ]
+            },
+            "extended": {
+                "title": "Extended",
+                "items": [
+                    { "text": "Duration - 2 hours" },
+                    { "text": "Favorite character" },
+                    { "text": "Musical accompaniment" },
+                    { "text": "Thematic props" },
+                    { "text": "Active games and dances" },
+                    { "text": "Cake presentation" },
+                    { "text": "Face painting" }
+                ]
             }
+        }
     },
     "gallery": {
         "subtitle": "The Best Children's Parties",

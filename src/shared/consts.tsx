@@ -8,6 +8,7 @@ export const menuItems = [
   { label: 'header.contacts', href: '/#contact-us' },
   { label: 'header.about-us', href: '/about' },
   { label: 'header.characters', href: '/characters' },
+  { label: 'header.payment-options', href: '/payment-options' },
 ]
 
 export const priceItems = [

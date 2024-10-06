@@ -1,7 +1,7 @@
 import React from 'react'
 import HeroSection from './blocks/HeroSection'
 import Prices from './blocks/Prices'
-import ContactUs from './blocks/ContactUs'
+import ContactUs from '../../widgets/ContactUs'
 import Benefits from './blocks/Benefits'
 import GallerySection from './blocks/GallerySection'
 import { I18nProviderClient } from '../../../locales/client'
