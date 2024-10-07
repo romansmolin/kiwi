@@ -11,8 +11,10 @@ const Home = () => {
 	const locale = getCurrentLocale()
 	return (
 		<>
-			<HeroSection />
-			<Benefits />
+			<div>
+				<HeroSection />
+				<Benefits />
+			</div>
 			<Prices />
 			<I18nProviderClient locale={locale}>
 				<GallerySection />

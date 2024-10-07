@@ -9,8 +9,9 @@ import LoadingSkeleton from "./LoadingSkeleton";
 import FormWidget from "./FormWidget";
 import FormModal from "./FormModal";
 import PaginationControl from "./PaginationControl";
+import LocationModal from "./LocationModal";
 
-export  {
+export {
     Header,
     EventForm,
     HeroCard,
@@ -21,5 +22,6 @@ export  {
     LoadingSkeleton,
     FormWidget,
     FormModal,
-    PaginationControl
-}
+    PaginationControl,
+    LocationModal,
+};

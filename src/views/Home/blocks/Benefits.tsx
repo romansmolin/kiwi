@@ -7,8 +7,8 @@ const Benefits = async () => {
     const t = await getI18n()
 
     return (
-        <section className="bg-primary-100 rounded-2xl flex flex-col items-center px-4 py-8 sm:px-6 sm:py-6 ">
-            <div className="mx-auto px-4 lg:py-12 sm:px-6 md:py-16 lg:px-8">
+        <section className="bg-primary-100 rounded-2xl flex flex-col items-center px-4 py-8 sm:px-6 sm:py-6">
+            <div className="mx-auto px-4 lg:py-12 sm:px-6 md:py-16 lg:px-8 ">
                 <div className="mx-auto max-w-3xl text-center">
                     <h2 className="text-3xl  text-primary-600 sm:text-4xl">{t("benefits.title")}</h2>
 

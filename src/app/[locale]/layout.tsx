@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { Rubik_Bubbles, Inter } from "next/font/google";
 import '../../shared/globals.css'
 import { ReactNode } from "react";
-import { FormModal, FormWidget, Header } from "@/components";
+import { FormModal, FormWidget, Header, LocationModal } from "@/components";
 import { I18nProviderClient } from "../../../locales/client";
 
 export const bubbles = Rubik_Bubbles({
     weight: '400',
     subsets: ['latin', 'cyrillic'],
     variable: '--bubbles'
-    
+
 })
 
 export const inter = Inter({
@@ -50,6 +50,9 @@ export default function RootLayout({ children, params, searchParams }: Readonly<
                         <FormModal />
                     </I18nProviderClient>
                     <FormWidget />
+                    <I18nProviderClient locale={locale}>
+                        <LocationModal />
+                    </I18nProviderClient>
                 </body>
             </html>
         </>
