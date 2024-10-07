@@ -20,9 +20,9 @@ const FormModal = () => {
                     <Logo className="h-16 w-16" />
                 </Button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className='overflow-y-scroll h-[600px] sm:overflow-auto sm:h-[unset]'>
                 <DialogHeader>
-                    <EventForm />
+                    <EventForm isModal />
                 </DialogHeader>
             </DialogContent>
         </Dialog>

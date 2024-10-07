@@ -34,12 +34,12 @@ import { useI18n } from '../../locales/client';
 
 interface EventFormProps {
     className?: string
-    isMini?: boolean
+    isModal?: boolean
 }
 
 type FormStateType = 'initial' | 'otp-verification' | 'success' | 'loading'
 
-const EventForm: React.FC<EventFormProps> = ({ className = '', isMini = false }) => {
+const EventForm: React.FC<EventFormProps> = ({ className = '', isModal = false }) => {
     const [formState, setFormState] = useState<FormStateType>('initial');
     const [loading, setLoading] = useState(false);
     const [otpCode, setOtpCode] = useState('')
@@ -220,7 +220,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '', isMini = false })
                             render={({ field }) => (
                                 <FormItem className="flex flex-col">
                                     <FormLabel className='leading-7 text-primary-600'>{t("contacts.form.date.label")}</FormLabel>
-                                    <Popover>
+                                    <Popover modal={isModal}>
                                         <PopoverTrigger asChild>
                                             <FormControl>
                                                 <Button
@@ -239,9 +239,8 @@ const EventForm: React.FC<EventFormProps> = ({ className = '', isMini = false })
                                                 </Button>
                                             </FormControl>
                                         </PopoverTrigger>
-                                        <PopoverContent className="w-auto p-0" align="start" onOpenAutoFocus={handleOpenAutoFocus}>
+                                        <PopoverContent className="w-auto p-0" align="start">
                                             <Calendar
-                                                className='z-[1000]'
                                                 mode="single"
                                                 selected={field.value}
                                                 onSelect={field.onChange}

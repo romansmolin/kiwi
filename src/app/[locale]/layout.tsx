@@ -43,7 +43,7 @@ export default function RootLayout({ children, params, searchParams }: Readonly<
                     <I18nProviderClient locale={locale}>
                         <Header />
                     </I18nProviderClient>
-                    <main className="mt-20 max-w-screen-xl space-y-4 w-[100%] m-auto flex-1">
+                    <main className="mt-20 max-w-screen-xl space-y-4 w-full m-auto flex-1">
                         {children}
                     </main>
                     <I18nProviderClient locale={locale}>
