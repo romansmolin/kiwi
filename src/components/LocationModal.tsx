@@ -23,7 +23,7 @@ const LocationModal = () => {
     const [location, setLocation] = useState<Location>(null)
     const router = useRouter()
 
-    const locationCardStyle = "w-1/2 p-10 flex justify-center items-center text-center text-lg border text-primary-600 border-primary-600 rounded-lg hover:text-white hover:bg-primary-600 cursor-pointer focus:border-4"
+    const locationCardStyle = "w-1/2 p-6 break-all sm:p-8 lg:p-10 flex justify-center items-center text-center text-lg border text-primary-600 border-primary-600 rounded-lg hover:text-white hover:bg-primary-600 cursor-pointer focus:border-4"
 
     const navigation: Record<string, () => void> = {
         'uk': () => router.push('/en'),
