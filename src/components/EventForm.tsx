@@ -133,18 +133,18 @@ const EventForm: React.FC<EventFormProps> = ({ className = '', isMini = false })
         }
     }
 
+    const handleOpenAutoFocus = () => {
+        document.body.style.pointerEvents = 'unset'
+    }
+
     const renderForm = () => (
         <>
-            <div className="mx-auto max-w-lg text-center">
-                {!isMini && (
-                    <>
-                        <h2 className="text-primary-600 text-2xl  sm:text-3xl">{t("contacts.form.title")}</h2>
+            <div className="mx-auto text-center">
+                <h2 className="text-primary-600 text-2xl  sm:text-3xl">{t("contacts.form.title")}</h2>
 
-                        <p className="mt-4 text-primary-500 text-lg">
-                            {t("contacts.form.text")}
-                        </p>
-                    </>
-                )}
+                <p className="mt-4 text-primary-500 text-lg">
+                    {t("contacts.form.text")}
+                </p>
             </div>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 mb-0 mt-8">
@@ -239,15 +239,15 @@ const EventForm: React.FC<EventFormProps> = ({ className = '', isMini = false })
                                                 </Button>
                                             </FormControl>
                                         </PopoverTrigger>
-                                        <PopoverContent className="w-auto p-0" align="start">
+                                        <PopoverContent className="w-auto p-0" align="start" onOpenAutoFocus={handleOpenAutoFocus}>
                                             <Calendar
+                                                className='z-[1000]'
                                                 mode="single"
                                                 selected={field.value}
                                                 onSelect={field.onChange}
                                                 disabled={(date) =>
                                                     date < new Date()
                                                 }
-                                                initialFocus
                                             />
                                         </PopoverContent>
                                     </Popover>
@@ -303,7 +303,7 @@ const EventForm: React.FC<EventFormProps> = ({ className = '', isMini = false })
     )
 
     return (
-        <div className={cn('lg:max-w-[45%] w-full', className)}>
+        <div className={cn('w-full', className)}>
             {formState === 'initial' && renderForm()}
             {formState === 'loading' && renderLoading()}
             {formState === 'otp-verification' && renderOtpVerification()}

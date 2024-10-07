@@ -6,7 +6,6 @@ import Spinner from "./Spinner";
 import Gallery from "./Gallery";
 import LanguageSelector from "./LanguageSelector";
 import LoadingSkeleton from "./LoadingSkeleton";
-import FormWidget from "./FormWidget";
 import FormModal from "./FormModal";
 import PaginationControl from "./PaginationControl";
 import LocationModal from "./LocationModal";
@@ -20,7 +19,6 @@ export {
     Gallery,
     LanguageSelector,
     LoadingSkeleton,
-    FormWidget,
     FormModal,
     PaginationControl,
     LocationModal,

@@ -37,7 +37,7 @@ const ContactUs = async () => {
                     </div>
                 </div>
                 <I18nProviderClient locale={locale}>
-                    <EventForm className='lg:flex-2 rounded-2xl bg-white px-4 py-8 sm:px-6 lg:px-8 flex-grow' />
+                    <EventForm className='lg:flex-2 lg:max-w-[45%] rounded-2xl bg-white px-4 py-8 sm:px-6 lg:px-8 flex-grow' />
                 </I18nProviderClient>
             </div>
         </div>
@@ -53,7 +53,7 @@ interface Contacts {
     href?: string
 }
 const contacts: Contacts[] = [
-    { title: 'Telegram', description: '@kiwi_animatori', icon: <BsTelegram className='w-7 h-7' /> , href: 'https://t.me/+0xLq57qMfDY2ZTA0'},
+    { title: 'Telegram', description: '@kiwi_animatori', icon: <BsTelegram className='w-7 h-7' />, href: 'https://t.me/+0xLq57qMfDY2ZTA0' },
     { title: 'WhatsApp', description: '+371 22836761', icon: <BsWhatsapp className='w-7 h-7' /> },
     { title: 'Email', description: 'alisa.bogdane2001@gmail.com', icon: <BsEnvelope className='w-7 h-7' /> },
     { title: 'Phone', description: '+371 25239955', icon: <BsPhone className='w-7 h-7' /> },

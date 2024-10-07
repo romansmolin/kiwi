@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Rubik_Bubbles, Inter } from "next/font/google";
 import '../../shared/globals.css'
 import { ReactNode } from "react";
-import { FormModal, FormWidget, Header, LocationModal } from "@/components";
+import { FormModal, Header, LocationModal } from "@/components";
 import { I18nProviderClient } from "../../../locales/client";
 
 export const bubbles = Rubik_Bubbles({
@@ -49,7 +49,6 @@ export default function RootLayout({ children, params, searchParams }: Readonly<
                     <I18nProviderClient locale={locale}>
                         <FormModal />
                     </I18nProviderClient>
-                    <FormWidget />
                     <I18nProviderClient locale={locale}>
                         <LocationModal />
                     </I18nProviderClient>
