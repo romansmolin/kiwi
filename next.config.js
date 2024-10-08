@@ -1,10 +1,13 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
     env: {
-        API_URL: 'https://kiwi-be.vercel.app/',
-        CLIENT_URL: 'https://kiwi-animations.com/'
+        API_URL: "https://kiwi-be.vercel.app/",
+        CLIENT_URL: "https://kiwi-animations.com/",
     },
     images: {
-        domains: ['res.cloudinary.com', 'flowbite.s3.amazonaws.com']
+        domains: ["res.cloudinary.com", "flowbite.s3.amazonaws.com"],
     },
-  };
+    headers: [
+        { key: "Access-Control-Allow-Origin", value: "http://localhost:5000/" },
+    ],
+};

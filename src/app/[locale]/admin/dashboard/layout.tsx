@@ -1,6 +1,6 @@
 import { Rubik_Bubbles, Inter } from "next/font/google";
 import { ReactNode } from "react";
-import '../../../shared/globals.css'
+import { AdminSidebar } from "@/components/admin";
 
 export const bubbles = Rubik_Bubbles({
     weight: '400',
@@ -13,21 +13,22 @@ export const inter = Inter({
     subsets: ['latin', 'cyrillic'],
     display: 'swap',
 })
-interface AdminSignInLayoutProps {
+interface RootLayoutProps {
     children: ReactNode
     params: {
         locale: string
     },
 }
 
-export default function AdminSignInLayout({ children, params }: Readonly<AdminSignInLayoutProps>) {
+export default function AdminDashboard({ children, params }: Readonly<RootLayoutProps>) {
     const { locale } = params
 
     return (
-        <html lang={locale} className={`${bubbles.variable}`}>
-            <body className={`${inter.className} main-page-gradient flex flex-col md:flex-row h-screen`}>
+        <>
+            <AdminSidebar />
+            <main className="p-4 flex-1">
                 {children}
-            </body>
-        </html>
+            </main>
+        </>
     );
 }

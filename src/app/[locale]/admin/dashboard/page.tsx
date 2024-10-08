@@ -1,11 +1,10 @@
 import { Suspense } from "react";
 import { LoadingSkeleton } from "@/components";
-import AdminSignIn from "@/views/AdminSignIn/AdminSignIn";
 
-export default function Admin() {
+export default function AdminDashboard() {
     return (
         <Suspense fallback={<LoadingSkeleton />}>
-            <AdminSignIn />
+            roma
         </Suspense>
     )
 }
