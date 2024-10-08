@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { AlertCircle } from "lucide-react"
+import { AlertCircle, Loader2 } from "lucide-react"
 import { axiosClient } from "@/shared/api/axiosClient"
+import { useRouter } from 'next/navigation'
 
 interface AuthPayload {
     username: string,
@@ -17,12 +18,18 @@ export default function AuthForm() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
+    const router = useRouter()
 
     const authenticateAdmin = async (payload: AuthPayload) => {
+        setLoading(true)
         try {
             await axiosClient.post('/sign-in', { ...payload }, { withCredentials: true })
+            router.push('/admin/dashboard')
         } catch (err) {
             console.log(err)
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -75,7 +82,10 @@ export default function AuthForm() {
                     )}
                 </CardContent>
                 <CardFooter>
-                    <Button type="submit" className="w-full bg-primary-600">Sign In</Button>
+                    <Button type="submit" className="w-full bg-primary-600" disabled={loading}>
+                        {loading && (<Loader2 className="mr-2 h-4 w-4 animate-spin" />)}
+                        Sign In
+                    </Button>
                 </CardFooter>
             </form>
         </Card>

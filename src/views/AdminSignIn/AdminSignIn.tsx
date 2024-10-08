@@ -1,4 +1,4 @@
-import AuthForm from '@/widgets/AuthForm'
+import AuthForm from '@/components/admin/AuthForm'
 import React from 'react'
 
 const AdminSignIn = () => {

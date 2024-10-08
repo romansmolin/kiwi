@@ -7,7 +7,4 @@ module.exports = {
     images: {
         domains: ["res.cloudinary.com", "flowbite.s3.amazonaws.com"],
     },
-    headers: [
-        { key: "Access-Control-Allow-Origin", value: "http://localhost:5000/" },
-    ],
 };

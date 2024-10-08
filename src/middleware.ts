@@ -12,9 +12,9 @@ export function middleware(request: NextRequest) {
 
     const { pathname } = request.nextUrl;
 
-    // if (!token && pathname === `/${locale}/admin/dashboard`) {
-    //     return NextResponse.redirect(new URL(`/${locale}/admin`, request.url));
-    // }
+    if (!token && pathname === `/${locale}/admin/dashboard`) {
+        return NextResponse.redirect(new URL(`/${locale}/admin`, request.url));
+    }
 
     return I18nMiddleware(request);
 }
