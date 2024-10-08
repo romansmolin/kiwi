@@ -1,4 +1,4 @@
-import About from "@/views/About/About";
+import Home from "@/views/Home/Home";
 import { getI18n } from "../../../../locales/server";
 import { Suspense } from "react";
 import { LoadingSkeleton } from "@/components";
@@ -6,15 +6,15 @@ import { LoadingSkeleton } from "@/components";
 export async function generateMetadata({ params }: { params: { locale: string } }) {
 	const t = await getI18n()
 	return {
-		title: `${t('seo.about.metaTitle')}`,
-		description: `${t('seo.about.metaDescription')}`
+		title: `${t('seo.home.metaTitle')}`,
+		description: `${t('seo.home.metaDescription')}`
 	}
 }
 
-export default function AboutUs() {
-  return (
-	<Suspense fallback={<LoadingSkeleton />}>
-		<About />
-	</Suspense>
-  )
+export default function HomePage() {
+	return (
+		<Suspense fallback={<LoadingSkeleton />}>
+			<Home />
+		</Suspense>
+	)
 }

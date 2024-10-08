@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Rubik_Bubbles, Inter } from "next/font/google";
-import '../../shared/globals.css'
+import '../../../shared/globals.css'
 import { ReactNode } from "react";
 import { FormModal, Header, LocationModal } from "@/components";
-import { I18nProviderClient } from "../../../locales/client";
+import { I18nProviderClient } from "../../../../locales/client";
 
 export const bubbles = Rubik_Bubbles({
     weight: '400',
@@ -33,7 +33,7 @@ interface RootLayoutProps {
     }
 }
 
-export default function RootLayout({ children, params, searchParams }: Readonly<RootLayoutProps>) {
+export default function UserLayout({ children, params, searchParams }: Readonly<RootLayoutProps>) {
     const { locale } = params
 
     return (

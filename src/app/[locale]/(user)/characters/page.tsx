@@ -3,7 +3,7 @@ import Characters from '@/views/Characters/Characters'
 import { axiosClient } from '@/shared/api/axiosClient';
 import { Header, LoadingSkeleton } from '@/components';
 import useTranslation from 'next-translate/useTranslation';
-import { getI18n } from '../../../../locales/server';
+import { getI18n } from '../../../../../locales/server';
 import { Divide } from 'lucide-react';
 
 
@@ -50,18 +50,18 @@ const getCharacters = async (page: number, limit: number, lang: string): Promise
 }
 
 const CharactersPage: React.FC<SearchParams> = async ({ searchParams, params }) => {
-	const { page } = searchParams 
+	const { page } = searchParams
 	const { locale } = params
 	const { characters, totalPages } = await getCharacters(parseInt(page), 6, locale);
-	
+
 	return (
-			<Suspense fallback={<LoadingSkeleton />}>
-				<Characters
-					characters={characters.results}
-					totalPages={totalPages}
-					currentPage={page || 1}
-				/>
-			</Suspense>
+		<Suspense fallback={<LoadingSkeleton />}>
+			<Characters
+				characters={characters.results}
+				totalPages={totalPages}
+				currentPage={page || 1}
+			/>
+		</Suspense>
 	)
 }
 
