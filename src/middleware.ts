@@ -16,6 +16,8 @@ export function middleware(request: NextRequest) {
         return NextResponse.redirect(new URL(`/${locale}/admin`, request.url));
     }
 
+    request.headers.set("cookie", token);
+
     return I18nMiddleware(request);
 }
 

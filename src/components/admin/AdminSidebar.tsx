@@ -43,7 +43,7 @@ export default function Sidebar() {
                     </nav>
                 </SheetContent>
             </Sheet>
-            <div className="hidden h-screen w-[270px] flex-col gap-4 border-r custom-backdrop-filter p-4 md:flex">
+            <div className="hidden fixed h-screen w-[270px] flex-col gap-4 border-r bg-white p-4 md:flex">
                 <div className="flex items-center px-2">
                     <h1 className="text-2xl font-bold text-primary-600">Kiwi Animations</h1>
                 </div>
