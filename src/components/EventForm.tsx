@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { format } from "date-fns";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -46,27 +46,16 @@ const EventForm: React.FC<EventFormProps> = ({ className = '', isModal = false }
     const [error, setError] = useState<string | null>(null);
     const t = useI18n()
 
-    const formSchema = z.object({
-        nameOfKid: z
-            .string()
-            .min(2, { message: t("contacts.form.name.errors.min") })
-            .max(50, { message: t("contacts.form.name.errors.max") }),
-        ageOfKid: z
-            .preprocess(value => Number(value), z
-                .number({ message: t("contacts.form.age.errors.min") })),
-        numberOfKids: z
-            .preprocess(value => Number(value), z
-                .number({ message: t("contacts.form.number.errors.min") })
-                .max(25, { message: t("contacts.form.number.errors.max") })),
-        desiredCharacter: z.string(),
-        phoneNumber: z
-            .string()
-            .regex(/^(\+?\d{1,4}[\s-]?)?\(?(\d{3})\)?[\s-]?(\d{3})[\s-]?(\d{4})$/, { message: t("contacts.form.phone.errors.message") }),
-        date: z
-            .date({
-                required_error: t("contacts.form.date.errors.message"),
-            }),
-    });
+    const formSchema = useMemo(() =>
+        z.object({
+            nameOfKid: z.string().min(2, { message: t('contacts.form.name.errors.min') }).max(50, { message: t('contacts.form.name.errors.max') }),
+            ageOfKid: z.preprocess(value => Number(value), z.number().min(1, { message: t('contacts.form.age.errors.min') })),
+            numberOfKids: z.preprocess(value => Number(value), z.number().min(1, { message: t('contacts.form.number.errors.min') }).max(25, { message: t('contacts.form.number.errors.max') })),
+            desiredCharacter: z.string(),
+            phoneNumber: z.string().regex(/^(\+?\d{1,4}[\s-]?)?\(?(\d{3})\)?[\s-]?(\d{3})[\s-]?(\d{4})$/, { message: t('contacts.form.phone.errors.message') }),
+            date: z.date({ required_error: t('contacts.form.date.errors.message') }),
+        }), [t]
+    );
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -131,10 +120,6 @@ const EventForm: React.FC<EventFormProps> = ({ className = '', isModal = false }
         } catch (err) {
             console.error('Error while verifying OTP code: ', err);
         }
-    }
-
-    const handleOpenAutoFocus = () => {
-        document.body.style.pointerEvents = 'unset'
     }
 
     const renderForm = () => (
