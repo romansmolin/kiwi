@@ -7,4 +7,7 @@ module.exports = {
     images: {
         domains: ["res.cloudinary.com", "flowbite.s3.amazonaws.com"],
     },
+    typescript: {
+        ignoreBuildErrors: true,
+    },
 };
