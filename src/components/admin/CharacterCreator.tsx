@@ -27,21 +27,23 @@ type FormData = {
     availableInUK: boolean;
 };
 
+const initialFormState = {
+    name: {
+        en: '',
+        ru: '',
+        lv: ''
+    },
+    description: {
+        en: '',
+        ru: '',
+        lv: ''
+    },
+    image: '',
+    availableInUK: false
+}
+
 export default function CharacterCreator() {
-    const [formData, setFormData] = useState<FormData>({
-        name: {
-            en: '',
-            ru: '',
-            lv: ''
-        },
-        description: {
-            en: '',
-            ru: '',
-            lv: ''
-        },
-        image: '',
-        availableInUK: false
-    });
+    const [formData, setFormData] = useState<FormData>(initialFormState);
 
     const handleInputChange = (lang: Language, field: keyof FormData, value: string) => {
         if (field === "image") {
@@ -70,7 +72,7 @@ export default function CharacterCreator() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Validation logic
+        // TODO: Switch to ZOD 
         const areAllNamesFilled = Object.values(formData.name).every((name) => name.trim() !== "");
         const areAllDescriptionsFilled = Object.values(formData.description).every((description) => description.trim() !== "");
         const isImageFilled = formData.image.trim() !== "";
@@ -86,7 +88,7 @@ export default function CharacterCreator() {
             console.log('Error while adding character: ', err)
         }
 
-        console.log("Form submitted:", formData);
+        setFormData(initialFormState)
     };
 
     const renderForm = (lang: Language) => (
@@ -123,12 +125,12 @@ export default function CharacterCreator() {
     );
 
     return (
-        <form onSubmit={handleSubmit}>
-            <Card className="w-full max-w-md">
+        <form onSubmit={handleSubmit} className="h-full">
+            <Card className="w-full h-full flex flex-col">
                 <CardHeader>
                     <CardTitle className="text-primary-600">Create a Character</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-1">
                     <Tabs defaultValue="en">
                         <TabsList className="grid w-full grid-cols-3">
                             <TabsTrigger value="en">English</TabsTrigger>

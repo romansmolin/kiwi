@@ -9,6 +9,7 @@ import LoadingSkeleton from "./LoadingSkeleton";
 import FormModal from "./FormModal";
 import PaginationControl from "./PaginationControl";
 import LocationModal from "./LocationModal";
+import { DataTable } from "./DataTable";
 
 export {
     Header,
@@ -22,4 +23,5 @@ export {
     FormModal,
     PaginationControl,
     LocationModal,
+    DataTable,
 };

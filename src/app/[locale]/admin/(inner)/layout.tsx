@@ -26,7 +26,7 @@ export default function AdminDashboard({ children, params }: Readonly<RootLayout
     return (
         <>
             <AdminSidebar />
-            <main className="ml-[270px] p-4 flex-1">
+            <main className="lg:ml-[270px] p-4 flex-1">
                 {children}
             </main>
         </>

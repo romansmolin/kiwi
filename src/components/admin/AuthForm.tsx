@@ -25,7 +25,7 @@ export default function AuthForm() {
         setLoading(true)
         try {
             await axiosClient.post('/sign-in', { ...payload }, { withCredentials: true })
-            router.push('/admin/dashboard')
+            router.push('/admin/characters')
         } catch (err) {
             console.log(err)
         } finally {

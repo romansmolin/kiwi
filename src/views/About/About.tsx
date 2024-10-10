@@ -3,23 +3,12 @@ import React from 'react'
 import { aboutUsContent } from '@/shared/consts'
 import Image from 'next/image'
 import Gallery from '@/components/Gallery'
-import useTranslation from 'next-translate/useTranslation'
 import { getI18n } from '../../../locales/server'
-
-const galleryImages = [
-    'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718907028/event-3_uemn4t.jpg',
-    'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718907027/event-6_e1qqq0.jpg',
-    'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718907028/event-1_d2kmrj.jpg',
-    'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718907027/event-10_sugrx5.jpg',
-    'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718907027/event-5_cse5tg.jpg',
-    'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718907028/event-4_gpwvqf.jpg',
-    'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718907027/event-9_crr5ag.jpg',
-    'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718907028/event-2_bdzt1r.jpg',
-    'https://res.cloudinary.com/dgh3hceyt/image/upload/v1718907027/event-7_eet123.jpg',
-]
+import { axiosClient } from '@/shared/api/axiosClient'
 
 const About = async () => {
     const t = await getI18n()
+    const { data: galleryImages } = await axiosClient.get('/gallery/all-images')
 
     return (
         <>
@@ -79,7 +68,7 @@ const About = async () => {
             </section>
             <section className='py-10'>
                 <h2 className='text-5xl text-center text-primary-600'>{t("about-us.gallery-title")}</h2>
-                <Gallery className="mt-10" images={galleryImages} />
+                <Gallery className="mt-10" images={galleryImages?.data} />
             </section>
         </>
     )

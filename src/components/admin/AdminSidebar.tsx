@@ -8,9 +8,9 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { BookOpen, Camera, Film, Menu, Users } from "lucide-react"
 
 const links = [
-    { href: "/blog", label: "Blog", icon: BookOpen },
+    // { href: "/blog", label: "Blog", icon: BookOpen },
     { href: "/characters", label: "Characters", icon: Users },
-    { href: "/poster", label: "Poster", icon: Film },
+    // { href: "/poster", label: "Poster", icon: Film },
     { href: "/gallery", label: "Gallery", icon: Camera },
 ]
 
